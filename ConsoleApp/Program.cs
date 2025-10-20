@@ -8,6 +8,7 @@ string? line = Console.ReadLine();
 
 int dayNumber = int.Parse(line);
 
+//classic switch statement
 switch (dayNumber)
 {
     case 1:
@@ -35,3 +36,26 @@ switch (dayNumber)
         Console.WriteLine("číslo mimo rozsah!");
         break;
 }
+
+//switch expression
+string denVTydnu = dayNumber switch
+{
+    1 => "Pondělí",
+    2 => "Úterý",
+    3 => "Středa",
+    4 => "Čtvrtek",
+    5 => "Pátek",
+    6 => "Sobota",
+    7 => "Neděle",
+    _ => "Neplatný den"
+};
+
+Console.WriteLine($"den v tydnu je: {denVTydnu}");
+
+//switch expression s podmínkami - pattern matching
+string jePracovniDen = dayNumber switch
+{
+    int i when i >= 1 && i <= 5 => "Pracovní den",
+    int i when i >= 6 && i <= 7 => "Víkend",
+    _ => "Neplatný den"
+};
