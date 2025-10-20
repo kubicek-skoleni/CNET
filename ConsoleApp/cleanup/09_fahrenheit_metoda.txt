@@ -1,0 +1,16 @@
+
+int[] teploty_celsius = [-10, 0, 15, 20, 25, 30, 35];
+
+foreach(var teplota in teploty_celsius)
+{
+    double teplota_fahrenheit = FromCelsiusToFahrenheit(teplota);
+    Console.WriteLine($"Teplota {teplota}°C je {teplota_fahrenheit}°F");
+}
+
+
+double FromCelsiusToFahrenheit(double celsius)
+{
+    double fahrenheit = (celsius * 9 / 5) + 32;
+
+    return fahrenheit;
+}

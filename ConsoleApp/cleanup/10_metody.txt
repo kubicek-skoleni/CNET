@@ -1,0 +1,63 @@
+
+
+
+int Age(int birthYear)
+{
+    int currentYear = DateTime.Now.Year;
+    return currentYear - birthYear;
+}
+
+string FullName(string firstName, string lastName)
+{
+    return $"{firstName} {lastName}";
+}
+
+
+// udìlejte metodu která dostane na vstup dvì èísla (int)
+// a vrátí vìtší z nich
+
+int Max(int a, int b)
+{
+    //if (a > b)
+    //    return a;
+    //else
+    //    return b;
+
+    //ternary operator
+    return (a > b) ? a : b;
+}
+
+int Add(int a, int b)
+{
+    return a + b;
+}
+
+//zkraceny zapis, kdyz metoda obsahuje jen jeden prikaz
+int Soucet(int a, int b) => a + b;
+
+
+bool IsPasswrodValid(string password) 
+    => (password.Length >= 8);
+
+
+double Square(double side)
+{
+    return side * side;
+}
+
+int Pocet(string slovo)
+{
+    return slovo.Length;
+}
+
+int MinutesToSecods(int minutes)
+{
+    return minutes * 60;
+}
+
+(int minutes, int secons) SecondsToMinutes(int seconds)
+{
+    int minutes = seconds / 60;
+    int secons = seconds % 60;
+    return (minutes, secons);
+}
