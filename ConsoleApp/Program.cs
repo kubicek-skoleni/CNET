@@ -1,0 +1,34 @@
+﻿int age = 25;
+double salary = 75000.5;
+string name = "John Doe";
+bool isEmployed = true;
+char grade = 'A';
+decimal price = 19.99m;
+
+Console.WriteLine($"Name: {name}");
+Console.WriteLine($"Age: {age}");
+Console.WriteLine($"Salary: ${salary:N2}");
+Console.WriteLine($"Employed: {isEmployed}");
+
+var company = "Tech Corp";
+var yearsOfExperience = 5;
+var hourlyRate = 345.50;
+
+Console.WriteLine($"Company: {company}");
+Console.WriteLine($"hourlyRate: {hourlyRate}");
+
+int a = 10;
+byte b = 20;
+
+a = b;
+b = (byte)a;
+b = (byte)hourlyRate;
+
+Console.WriteLine($"b: {b}");
+
+string numberStr = "12345";
+
+int number = int.Parse(numberStr);
+number++;
+
+string number_as_string = number.ToString();
