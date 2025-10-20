@@ -1,18 +1,54 @@
 ﻿
 
-Console.WriteLine("Zadej číslo nebo 'Q' pro ukončení:");
+int[] numbers = [2, 5, 6];
+List<string> fruits = ["Apple", "Banana", "Orange", "Grape"];
 
-int sum = 0;
-string line = Console.ReadLine();
+var prvni = fruits[0];
+Console.WriteLine(prvni);
 
-while(line != "Q")
-{
-    int number = int.Parse(line);
-    sum += number;
+//var posledni = fruits[3];
+//Console.WriteLine(posledni);
 
-    Console.WriteLine($"Aktuální suma je: {sum}");
-    Console.WriteLine("Zadej číslo nebo 'Q' pro ukončení:");
-    line = Console.ReadLine();
-}
+fruits[0] = "Mango";
+prvni = fruits[0];
+Console.WriteLine(prvni);
 
-Console.WriteLine($"Konec programu, dosažená suma: {sum}");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Console.WriteLine("Zadej číslo nebo 'Q' pro ukončení:");
+
+//int sum = 0;
+//string line = Console.ReadLine();
+
+//while(line != "Q")
+//{
+//    int number = int.Parse(line);
+//    sum += number;
+
+//    Console.WriteLine($"Aktuální suma je: {sum}");
+//    Console.WriteLine("Zadej číslo nebo 'Q' pro ukončení:");
+//    line = Console.ReadLine();
+//}
+
+//Console.WriteLine($"Konec programu, dosažená suma: {sum}");
