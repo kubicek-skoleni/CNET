@@ -1,0 +1,13 @@
+
+int[] numbers = [2, 5, 6];
+List<string> fruits = ["Apple", "Banana", "Orange", "Grape"];
+
+var prvni = fruits[0];
+Console.WriteLine(prvni);
+
+//var posledni = fruits[3];
+//Console.WriteLine(posledni);
+
+fruits[0] = "Mango";
+prvni = fruits[0];
+Console.WriteLine(prvni);
