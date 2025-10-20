@@ -1,0 +1,11 @@
+
+Console.WriteLine("zadej vìk:");
+
+string input = Console.ReadLine();
+
+int age = int.Parse(input);
+
+if(age >= 18)
+    Console.WriteLine("Jste plnoletý/á.");
+else
+    Console.WriteLine("Nejste plnoletý/á.");
