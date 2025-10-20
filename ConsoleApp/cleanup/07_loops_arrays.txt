@@ -1,0 +1,26 @@
+
+//for loop
+for (int i = 1; i <= 10; i = i + 2)
+{
+    Console.Write($"{i} ");
+}
+
+//while loop
+Console.Write("While loop (countdown): ");
+int countdown = 5;
+while (countdown > 0)
+{
+    Console.Write($"{countdown} ");
+    countdown--;
+}
+Console.WriteLine("Blast off!");
+
+
+int[] numbers = [2, 5, 6];
+string[] fruits = ["Apple", "Banana", "Orange", "Grape"];
+
+//foreach loop
+foreach (var fruit in fruits)
+{
+    Console.WriteLine(fruit);
+}

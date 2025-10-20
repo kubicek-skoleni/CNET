@@ -1,0 +1,61 @@
+// den v tıdnu pomocí switch
+// 1-7 = pondìlí - nedìle
+// pokud je èíslo mimo tento rozsah, vypiš "Neplatnı den"
+
+Console.WriteLine("Zadej èíslo 1-7 a zmáèkni enter:");
+
+string? line = Console.ReadLine();
+
+int dayNumber = int.Parse(line);
+
+//classic switch statement
+switch (dayNumber)
+{
+    case 1:
+        Console.WriteLine("Pondìlí");
+        break;
+    case 2:
+        Console.WriteLine("Úterı");
+        break;
+    case 3:
+        Console.WriteLine("Støeda");
+        break;
+    case 4:
+        Console.WriteLine("Ètvrtek");
+        break;
+    case 5:
+        Console.WriteLine("Pátek");
+        break;
+    case 6:
+        Console.WriteLine("Sobota");
+        break;
+    case 7:
+        Console.WriteLine("Nedìle");
+        break;
+    default:
+        Console.WriteLine("èíslo mimo rozsah!");
+        break;
+}
+
+//switch expression
+string denVTydnu = dayNumber switch
+{
+    1 => "Pondìlí",
+    2 => "Úterı",
+    3 => "Støeda",
+    4 => "Ètvrtek",
+    5 => "Pátek",
+    6 => "Sobota",
+    7 => "Nedìle",
+    _ => "Neplatnı den"
+};
+
+Console.WriteLine($"den v tydnu je: {denVTydnu}");
+
+//switch expression s podmínkami - pattern matching
+string jePracovniDen = dayNumber switch
+{
+    int i when i >= 1 && i <= 5 => "Pracovní den",
+    int i when i >= 6 && i <= 7 => "Víkend",
+    _ => "Neplatnı den"
+};
