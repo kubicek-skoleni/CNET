@@ -1,0 +1,26 @@
+string firstName = "Alice";
+string lastName = "Johnson";
+
+
+string fullName = firstName + " " + lastName;
+Console.WriteLine($"firstName + lastName: {fullName}");
+Console.WriteLine($"firstName + lastName: {firstName} {lastName}");
+
+// stringy v c# se nemodifikuji - metody vraci kopii - novy string
+var charscount = firstName.Length;
+var first_upper = firstName.ToUpper();
+
+Console.WriteLine($"Chars in firstName: {charscount}");
+Console.WriteLine($"firstName: {firstName}");
+Console.WriteLine($"firstName in uppercase: {first_upper}");
+
+Console.WriteLine($"Lowercase: {fullName.ToLower()}");
+
+Console.WriteLine($"Contains 'john': {fullName.ToLower().Contains("john")}");
+
+
+bool statrs_alic = fullName.StartsWith("Alic");
+
+var trimmed = fullName.Trim();
+
+string example = @"C:Users\Documents\file.txt";
