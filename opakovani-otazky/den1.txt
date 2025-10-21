@@ -1,0 +1,42 @@
+* Co znamená, že C# je "strongly typed" 
+	všechny proměnné mají daný datový typ
+
+* Jaké znáte datové typy
+	bool, int, double, float, string, char, decimal
+	DateTime, TimeOnly, DateOnly
+	int[] cisla
+	var NENI!!
+
+* klíčové slovo var
+	implicitní typování
+	var dt = DateTime.Now
+
+* Rozdíl mezi příkazem a výrazem, kam se píše středník
+	a = b + c; // příkaz přiřazení
+	Console.WriteLine(); //přikaz volání metody
+	b + c //výraz
+	a < 10 //výraz
+
+* Co je to metoda / funkce, jak se deklaruje
+	opakováné používání kódu
+	
+	navratový_typ nazev (typ param1, typ2 param2)
+	{
+		return;
+	}
+
+
+* klíčové slovo void
+	metoda nic nevrací
+	return; return pro ukončení metody
+
+
+* switch vs if/else
+	
+* switch vs switch expression
+
+* jaké smyčky/cykly v c# znáte
+	for
+	while
+	do-while
+	foreach
