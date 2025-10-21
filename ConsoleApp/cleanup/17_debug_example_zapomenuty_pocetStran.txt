@@ -1,0 +1,12 @@
+using ConsoleApp.Model;
+
+Kostka kostka_6 = new Kostka();
+
+Kostka kostka_20 = new Kostka();
+
+for (int i = 1; i <= 10; i++)
+{
+    int hod_6 = kostka_6.Hod();
+    int hod_20 = kostka_20.Hod();
+    Console.WriteLine($"Hod {i}: {hod_6}, {hod_20}");
+}

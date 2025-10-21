@@ -1,12 +1,12 @@
-ï»¿//deleni nulou
+//deleni nulou
 
 try
 {
-    Console.WriteLine("Zadej prvnÃ­ ÄÃ­slo:");
+    Console.WriteLine("Zadej první èíslo:");
     string input1 = Console.ReadLine();
     int x = int.Parse(input1);
 
-    Console.WriteLine("Zadej druhÃ© ÄÃ­slo:");
+    Console.WriteLine("Zadej druhé èíslo:");
     int y = int.Parse(Console.ReadLine());
 
     int result = x / y;
@@ -14,11 +14,11 @@ try
 }
 catch(DivideByZeroException ex)
 {
-    Console.WriteLine("Chyba: DÄ›lenÃ­ nulou nenÃ­ povoleno.");
+    Console.WriteLine("Chyba: Dìlení nulou není povoleno.");
 }
 catch(FormatException ex)
 {
-    Console.WriteLine("Chyba: NeplatnÃ½ formÃ¡t ÄÃ­sla.");
+    Console.WriteLine("Chyba: Neplatnı formát èísla.");
 }
 catch (Exception ex)
 {
