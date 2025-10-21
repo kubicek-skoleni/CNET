@@ -1,10 +1,20 @@
 ﻿using ConsoleApp.Model;
 
-var auto1 = new Auto("4A2 3020", "Škoda");
-auto1.PridejKilometry(100);
-auto1.VypisInfo();
+var student = new Student();
 
+student.Jmeno = "Jan";
+student.Prijmeni = "Novák";
+student.Trida = "3.A";
+student.RokNarozeni = 2007;
 
-var auto2 = new Auto("1B3 4567", "Mercedes");
-auto2.VypisInfo();
+Console.WriteLine($"Student: {student.CeleJmeno()}, Věk: {student.Vek()}");
 
+var student2 = new Student
+{
+    Jmeno = "Eva",
+    Prijmeni = "Svobodová",
+    Trida = "2.B",
+    RokNarozeni = 2008
+};
+
+Console.WriteLine($"Student: {student2.CeleJmeno()}, Věk: {student2.Vek()}");
