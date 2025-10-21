@@ -1,10 +1,10 @@
-ï»¿using ConsoleApp.Model;
+using ConsoleApp.Model;
 
 SeznamUkolu seznamUkolu = new SeznamUkolu("ukoly.txt");
 
 seznamUkolu.VypisUkoly();
 
-Console.WriteLine("zadej ÄÃ­slo splnÄ›nÃ©ho Ãºkolu nebo Q pro konec programu:");
+Console.WriteLine("zadej èíslo splnìného úkolu nebo Q pro konec programu:");
 var vstup = Console.ReadLine();
 
 
@@ -17,15 +17,15 @@ while (vstup != "Q")
 
     if (seznamUkolu.JeHotovo())
     {
-        Console.WriteLine("VÅ¡echny Ãºkoly jsou hotovÃ©! HurÃ¡!");
+        Console.WriteLine("Všechny úkoly jsou hotové! Hurá!");
         break;
     }
 
-    Console.WriteLine("zadej ÄÃ­slo splnÄ›nÃ©ho Ãºkolu nebo Q pro konec programu:");
+    Console.WriteLine("zadej èíslo splnìného úkolu nebo Q pro konec programu:");
     vstup = Console.ReadLine();
 }
 
-Console.WriteLine("ukonÄenÃ­ programu");
+Console.WriteLine("ukonèení programu");
 
 
 
