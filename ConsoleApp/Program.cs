@@ -1,26 +1,59 @@
-﻿//deleni nulou
+﻿using ConsoleApp.Model;
 
-try
-{
-    Console.WriteLine("Zadej první číslo:");
-    string input1 = Console.ReadLine();
-    int x = int.Parse(input1);
+//seznam úkolů
+List<Ukol> ukoly = new();
 
-    Console.WriteLine("Zadej druhé číslo:");
-    int y = int.Parse(Console.ReadLine());
+//načtení ze souboru
+string[] radky = File.ReadAllLines("ukoly.txt");
 
-    int result = x / y;
-    Console.WriteLine(result);
-}
-catch(DivideByZeroException ex)
+// uložení do kolence jako objekty Ukol
+foreach (string radek in radky)
 {
-    Console.WriteLine("Chyba: Dělení nulou není povoleno.");
+    Ukol novyUkol = new Ukol();
+    novyUkol.Popis = radek;
+    ukoly.Add(novyUkol);
 }
-catch(FormatException ex)
+
+VypisUkoly(ukoly);
+
+//
+Console.WriteLine("zadej číslo splněného úkolu nebo Q pro konec programu:");
+var vstup = Console.ReadLine();
+
+
+while (vstup != "Q")
 {
-    Console.WriteLine("Chyba: Neplatný formát čísla.");
+    int cisloSplneny = int.Parse(vstup);
+    ukoly[cisloSplneny - 1].Hotovo = true;
+
+    VypisUkoly(ukoly);
+
+    Console.WriteLine("zadej číslo splněného úkolu nebo Q pro konec programu:");
+    vstup = Console.ReadLine();
 }
-catch (Exception ex)
+
+//výpis úkolů
+void VypisUkoly(List<Ukol> ukoly)
 {
-    Console.WriteLine($"chyba:{ex.Message}");
+    foreach (var ukol in ukoly)
+    {
+        int i = ukoly.IndexOf(ukol);
+        Console.WriteLine($"{i + 1}: {ukol.Zobrazit()}");
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

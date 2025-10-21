@@ -1,0 +1,5 @@
+string[] lines = File.ReadAllLines("example.txt");
+
+var lines_count = lines.Length;
+
+Console.WriteLine($"soubor obsahuje:{lines_count} øádkù");

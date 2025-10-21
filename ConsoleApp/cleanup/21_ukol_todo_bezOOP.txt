@@ -1,0 +1,31 @@
+// nacist seznam todo ukolu ze souboru
+// zobrazit seznam v konzoli - každý úkol má své èíslo
+// uživatel mùže zadat jaký úkol splnil
+// aktualizujeme zobrazení
+
+// *****
+
+
+// nacist seznam todo ukolu ze souboru
+var ukoly = File.ReadAllLines("ukoly.txt");
+
+// zobrazit seznam v konzoli - každý úkol má své èíslo
+
+for(int i = 0; i < ukoly.Length; i++)
+{
+    Console.WriteLine($"{i + 1}: [ ] {ukoly[i]}");
+}
+
+// uživatel mùže zadat jaký úkol splnil
+Console.WriteLine("zadej èíslo splnìného úkolu:");
+int cisloSplneny = int.Parse(Console.ReadLine());
+
+for (int i = 0; i < ukoly.Length; i++)
+{
+    if(cisloSplneny == i+1)
+        Console.WriteLine($"{i + 1}: [X] {ukoly[i]}");
+    else
+        Console.WriteLine($"{i + 1}: [ ] {ukoly[i]}");
+}
+
+// aktualizujeme zobrazení
