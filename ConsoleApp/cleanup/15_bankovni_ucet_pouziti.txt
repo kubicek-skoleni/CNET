@@ -1,4 +1,4 @@
-ï»¿using ConsoleApp.Model;
+using ConsoleApp.Model;
 
 BankovniUcet ucet1 
     = new BankovniUcet("Jan Novak", "123456789/0100");
@@ -21,6 +21,6 @@ ucet2.VypisZustatek();
 
 BankovniUcet ucet3 = new BankovniUcet
 {
-    Majitel = "Karel DvoÅ™Ã¡k",
+    Majitel = "Karel Dvoøák",
     CisloUctu = "555666777/0100"
 };
