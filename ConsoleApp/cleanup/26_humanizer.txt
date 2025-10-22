@@ -1,0 +1,10 @@
+using Humanizer;
+using System.Globalization;
+
+var czechCulture = new CultureInfo("cs-CZ");
+
+var pethodin = TimeSpan.FromMinutes(1);
+
+var text = pethodin.Humanize();
+
+Console.WriteLine(text);

@@ -8,15 +8,30 @@ namespace ConsoleApp.Model
         public SeznamUkolu(string soubor)
         {
             //načtení ze souboru
-            string[] radky = File.ReadAllLines("ukoly.txt");
-
-            foreach (string radek in radky)
+            try
             {
-                Ukol novyUkol = new Ukol();
-                novyUkol.Popis = radek;
-                Ukoly.Add(novyUkol);
+                string[] radky = File.ReadAllLines("ukoly.txt");
+
+                foreach (string radek in radky)
+                {
+                    Ukol novyUkol = new Ukol();
+                    novyUkol.Popis = radek;
+                    Ukoly.Add(novyUkol);
+                }
+
+                PodariloSeNacist = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Chyba při načítání souboru!");
+                Console.WriteLine("Doplňte soubor ukoly.txt se seznamem úkolů");
+
+                PodariloSeNacist = false;
             }
         }
+
+        public bool PodariloSeNacist = false;
+
         //seznam úkolů
         public List<Ukol> Ukoly = new();
 

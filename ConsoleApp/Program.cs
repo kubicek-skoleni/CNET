@@ -1,10 +1,51 @@
-﻿using Humanizer;
-using System.Globalization;
+﻿using ConsoleApp.Model;
 
-var czechCulture = new CultureInfo("cs-CZ");
+SeznamUkolu seznamUkolu = new SeznamUkolu("ukoly.txt");
 
-var pethodin = TimeSpan.FromMinutes(1);
+if(seznamUkolu.PodariloSeNacist == false)
+{
+    Console.WriteLine("Konec programu. Nepodařilo se načíst úkoly.");
+    return;
+}
 
-var text = pethodin.Humanize();
+seznamUkolu.VypisUkoly();
 
-Console.WriteLine(text);
+Console.WriteLine("zadej číslo splněného úkolu nebo Q pro konec programu:");
+var vstup = Console.ReadLine();
+
+
+while (vstup != "Q")
+{
+    int cisloSplneny = int.Parse(vstup);
+    seznamUkolu.OznamitSplneni(cisloSplneny);
+
+    seznamUkolu.VypisUkoly();
+
+    if (seznamUkolu.JeHotovo())
+    {
+        Console.WriteLine("Všechny úkoly jsou hotové! Hurá!");
+        break;
+    }
+
+    Console.WriteLine("zadej číslo splněného úkolu nebo Q pro konec programu:");
+    vstup = Console.ReadLine();
+}
+
+Console.WriteLine("ukončení programu");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
