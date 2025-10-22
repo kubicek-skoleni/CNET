@@ -1,4 +1,6 @@
 int[] cisla = [2, 5, 8, 13, 21, -7, 100, 0, 15, -3333, 10, 5];
+
+
 string[] fruits = ["aPPLE", "BlUeBeRrY", "cHeRry", "RaspbeRry" ];
 
 # Školení C# / .NET8
