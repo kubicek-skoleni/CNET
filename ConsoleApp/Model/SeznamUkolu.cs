@@ -20,7 +20,6 @@ namespace ConsoleApp.Model
         //seznam úkolů
         public List<Ukol> Ukoly = new();
 
-
         public void VypisUkoly()
         {
             foreach (var ukol in Ukoly)

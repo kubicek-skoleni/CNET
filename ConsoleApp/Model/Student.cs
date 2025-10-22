@@ -7,6 +7,7 @@ namespace ConsoleApp.Model
         public string Prijmeni;
         public string Trida;
         public int RokNarozeni;
+        public Adresa TrvalaAdresa;
 
         public int Vek()
         {

@@ -1,0 +1,8 @@
+using ConsoleApp.Model;
+
+Student student = new Student();
+
+student.Jmeno = "Jan";
+student.TrvalaAdresa.Ulice = "Hlavní 123";
+
+string ulice = student.TrvalaAdresa.Ulice;
