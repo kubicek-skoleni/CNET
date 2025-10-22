@@ -9,6 +9,12 @@ namespace ConsoleApp.Model
         public int RokNarozeni;
         public Adresa TrvalaAdresa;
 
+        public Student(string jmeno, int rok)
+        {
+            Jmeno = jmeno;
+            RokNarozeni = rok;
+        }
+
         public int Vek()
         {
             int aktualniRok = DateTime.Now.Year;

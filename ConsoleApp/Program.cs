@@ -1,41 +1,20 @@
-﻿
-int[] cisla = [2, 5, 8, 13, 21, -7, 100, 0, 15, -3333, 10, 5];
+﻿using ConsoleApp.Model;
 
-//LINQ
-//WHERE - filtrace
-var vetsi20 = cisla.Where(cislo => cislo > 20);
+List<Student> students = new()
+{
+    new Student("Alice", 2000),
+    new Student("Bob", 2004),
+    new Student("Charlie", 2008),
+    new Student("Diana", 2010),
+    new Student("Eve", 2015),
+    new Student("Frank", 1995)
+};
 
-//ORDERBY
-var serazene = cisla.OrderBy(cislo => cislo);
+var studenti_nad_18 = students
+                    .Where(stud => stud.Vek() >= 18);
 
-//kombinace
-var vetsi_serazene = cisla.Where(cislo => cislo > 10)
-                          .OrderByDescending(cislo => cislo);
+foreach (var stud in studenti_nad_18)
+{
+    Console.WriteLine($"{stud.Jmeno} {stud.Vek()}");
+}
 
-
-
-//AGGREGATE FUNCTIONS
-var sum = cisla.Sum();
-var avg = cisla.Average();
-var min = cisla.Min();
-var max = cisla.Max();
-var count = cisla.Count();
-
-var skip5 = cisla.Skip(5);
-
-var take5 = cisla.Take(5);
-
-int first = cisla.First();
-
-var result = cisla.Select(cislo => cislo * 2);
-
-//foreach (var cislo in result)
-//{
-//    Console.WriteLine(cislo);
-//}
-
-var any = !cisla.Any(x => x < 0);
-
-var all = cisla.All(x => x > 0);
-
-Console.WriteLine($"!cisla.Any(x => x < 0): {any}");
