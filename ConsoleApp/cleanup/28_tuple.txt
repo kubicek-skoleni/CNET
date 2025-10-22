@@ -1,0 +1,44 @@
+
+using static System.Net.Mime.MediaTypeNames;
+
+var vysledek = DayOfWeekInCzech(3);
+
+Console.WriteLine($"{vysledek.den} je pracovni? : {vysledek.pracovni}");
+
+
+(string den, bool pracovni) DayOfWeekInCzech(int dayNumber)
+{
+    string den = dayNumber switch
+    {
+        1 => "Pondìlí",
+        2 => "Úterý",
+        3 => "Støeda",
+        4 => "Ètvrtek",
+        5 => "Pátek",
+        6 => "Sobota",
+        7 => "Nedìle",
+        _ => "Neplatný den"
+    };
+
+    bool jePracovniDen = (dayNumber >= 1 && dayNumber <= 5);
+        
+    return (den, jePracovniDen);
+}
+
+
+
+int[] pole = new int[5];
+pole[0] = 10;
+
+string text = "";
+
+if (text is not null and { Length: > 0 } and not "")
+{
+    // String is not null, not empty, and not "N/A"
+}
+
+
+if (!string.IsNullOrEmpty(text))
+{
+    // mám k dispozici nìjaký text
+}
