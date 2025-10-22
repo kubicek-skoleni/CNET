@@ -1,3 +1,5 @@
+int[] cisla = [2, 5, 8, 13, 21, -7, 100, 0, 15, -3333, 10, 5];
+
 # Školení C# / .NET8
 
 ## Visual Studio 2022 Community Edition - https://visualstudio.microsoft.com/vs/
