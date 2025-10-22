@@ -1,0 +1,23 @@
+* Co je to třída 
+	- členění kódu
+	- metody
+	- vlastnosti
+	- šablona na tvorbu instancí
+
+	a co do ní lze psát
+		metody
+		vlastnosti
+		constructor
+
+* Kolik konstruktorů může třída mít
+	- neomezeně
+
+* Co je to Exception
+	
+	chyba programu, neočekávaná situace
+	try{} catch{}
+
+* List vs Array
+
+* Co to je breakpoint
+
