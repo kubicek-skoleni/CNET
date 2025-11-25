@@ -4,36 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp
+namespace ConsoleApp;
+
+public class Student
 {
-    public class Student
+    //field
+    public string? _name;
+
+    //property
+    public string Name 
     {
-        //field
-        public string? _name;
-
-        //property
-        public string Name 
+        get
         {
-            get
-            {
-                return _name.ToUpper();
-            }
-            set
-            {
-                if(string.IsNullOrWhiteSpace(value))
-                {
-                    throw new ArgumentException("Name cannot be null or whitespace.");
-                }
-                _name = value;
-            }
+            return _name.ToUpper();
         }
-
-        public DateOnly DateOfBirht { get; set; }
-
-        public int Age() =>
-                DateTime.Now.Year - DateOfBirht.Year;
-        
-
-
+        set
+        {
+            if(string.IsNullOrWhiteSpace(value))
+            {
+                throw new ArgumentException("Name cannot be null or whitespace.");
+            }
+            _name = value;
+        }
     }
+
+    public DateOnly DateOfBirht { get; set; }
+
+    public int Age() =>
+            DateTime.Now.Year - DateOfBirht.Year;
+    
+
+
 }

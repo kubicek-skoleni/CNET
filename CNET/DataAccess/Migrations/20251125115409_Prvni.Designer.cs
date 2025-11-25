@@ -8,124 +8,123 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace DataAccess.Migrations
+namespace DataAccess.Migrations;
+
+[DbContext(typeof(PeopleDbContext))]
+[Migration("20251125115409_Prvni")]
+partial class Prvni
 {
-    [DbContext(typeof(PeopleDbContext))]
-    [Migration("20251125115409_Prvni")]
-    partial class Prvni
+    /// <inheritdoc />
+    protected override void BuildTargetModel(ModelBuilder modelBuilder)
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
-        {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.11");
+        modelBuilder.HasAnnotation("ProductVersion", "9.0.11");
 
-            modelBuilder.Entity("Model.Address", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+        modelBuilder.Entity("Model.Address", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("INTEGER");
 
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                b.Property<string>("City")
+                    .IsRequired()
+                    .HasColumnType("TEXT");
 
-                    b.Property<string>("Street")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                b.Property<string>("Street")
+                    .IsRequired()
+                    .HasColumnType("TEXT");
 
-                    b.Property<string>("ZipCode")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                b.Property<string>("ZipCode")
+                    .IsRequired()
+                    .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.ToTable("Addresses");
-                });
+                b.ToTable("Addresses");
+            });
 
-            modelBuilder.Entity("Model.Contract", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+        modelBuilder.Entity("Model.Contract", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("INTEGER");
 
-                    b.Property<int>("CarBrand")
-                        .HasColumnType("INTEGER");
+                b.Property<int>("CarBrand")
+                    .HasColumnType("INTEGER");
 
-                    b.Property<string>("HexColor")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                b.Property<string>("HexColor")
+                    .IsRequired()
+                    .HasColumnType("TEXT");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                b.Property<string>("Name")
+                    .IsRequired()
+                    .HasColumnType("TEXT");
 
-                    b.Property<int?>("PersonId")
-                        .HasColumnType("INTEGER");
+                b.Property<int?>("PersonId")
+                    .HasColumnType("INTEGER");
 
-                    b.Property<string>("PlateNumber")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                b.Property<string>("PlateNumber")
+                    .IsRequired()
+                    .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Signed")
-                        .HasColumnType("TEXT");
+                b.Property<DateTime>("Signed")
+                    .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.HasIndex("PersonId");
+                b.HasIndex("PersonId");
 
-                    b.ToTable("Contracts");
-                });
+                b.ToTable("Contracts");
+            });
 
-            modelBuilder.Entity("Model.Person", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+        modelBuilder.Entity("Model.Person", b =>
+            {
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("INTEGER");
 
-                    b.Property<int?>("AddressId")
-                        .HasColumnType("INTEGER");
+                b.Property<int?>("AddressId")
+                    .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("TEXT");
+                b.Property<DateTime>("DateOfBirth")
+                    .HasColumnType("TEXT");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("TEXT");
+                b.Property<string>("Email")
+                    .HasColumnType("TEXT");
 
-                    b.Property<string>("FirstName")
-                        .HasColumnType("TEXT");
+                b.Property<string>("FirstName")
+                    .HasColumnType("TEXT");
 
-                    b.Property<string>("LastName")
-                        .HasColumnType("TEXT");
+                b.Property<string>("LastName")
+                    .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                b.HasKey("Id");
 
-                    b.HasIndex("AddressId");
+                b.HasIndex("AddressId");
 
-                    b.ToTable("Persons");
-                });
+                b.ToTable("Persons");
+            });
 
-            modelBuilder.Entity("Model.Contract", b =>
-                {
-                    b.HasOne("Model.Person", null)
-                        .WithMany("Contracts")
-                        .HasForeignKey("PersonId");
-                });
+        modelBuilder.Entity("Model.Contract", b =>
+            {
+                b.HasOne("Model.Person", null)
+                    .WithMany("Contracts")
+                    .HasForeignKey("PersonId");
+            });
 
-            modelBuilder.Entity("Model.Person", b =>
-                {
-                    b.HasOne("Model.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressId");
+        modelBuilder.Entity("Model.Person", b =>
+            {
+                b.HasOne("Model.Address", "Address")
+                    .WithMany()
+                    .HasForeignKey("AddressId");
 
-                    b.Navigation("Address");
-                });
+                b.Navigation("Address");
+            });
 
-            modelBuilder.Entity("Model.Person", b =>
-                {
-                    b.Navigation("Contracts");
-                });
+        modelBuilder.Entity("Model.Person", b =>
+            {
+                b.Navigation("Contracts");
+            });
 #pragma warning restore 612, 618
-        }
     }
 }

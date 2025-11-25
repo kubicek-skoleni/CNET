@@ -6,34 +6,33 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Model;
 
-namespace DataAccess
+namespace DataAccess;
+
+public class PeopleDbContext : DbContext
 {
-    public class PeopleDbContext : DbContext
+    public DbSet<Person> Persons { get; set; }
+
+    public DbSet<Address> Addresses { get; set; }
+
+    public DbSet<Contract> Contracts { get; set; }
+
+
+    override protected void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        public DbSet<Person> Persons { get; set; }
+        optionsBuilder.UseSqlite($"Data Source={GetDbPath()}");
+    }
 
-        public DbSet<Address> Addresses { get; set; }
+    private string GetDbPath()
+    {
+        //return @"C:\PROJECTS\skoleni\people.db";
 
-        public DbSet<Contract> Contracts { get; set; }
-
-
-        override protected void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        var folder = Environment.SpecialFolder.LocalApplicationData;
+        var local_folder = Environment.GetFolderPath(folder);
+        var path = Path.Join(local_folder, "PeopleDb");
+        if(!Directory.Exists(path))
         {
-            optionsBuilder.UseSqlite($"Data Source={GetDbPath()}");
+            Directory.CreateDirectory(path);
         }
-
-        private string GetDbPath()
-        {
-            //return @"C:\PROJECTS\skoleni\people.db";
-
-            var folder = Environment.SpecialFolder.LocalApplicationData;
-            var local_folder = Environment.GetFolderPath(folder);
-            var path = Path.Join(local_folder, "PeopleDb");
-            if(!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-            return Path.Join(path, "people.db");
-        }
+        return Path.Join(path, "people.db");
     }
 }

@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace Model;
+
+public class Contract
 {
-    public class Contract
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string PlateNumber { get; set; }
-        public DateTime Signed { get; set; }
-        public int CarBrand { get; set; }
-        public string HexColor { get; set; }
-    }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string PlateNumber { get; set; }
+    public DateTime Signed { get; set; }
+    public int CarBrand { get; set; }
+    public string HexColor { get; set; }
 }
