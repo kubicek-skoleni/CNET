@@ -1,41 +1,53 @@
-﻿int[] numbers = { 11, 2, 13, -97542, 44, 
-    -5, 6, 127, -99, 0, 256, 0, 12, 11 };
+﻿using DataAccess;
+using Microsoft.EntityFrameworkCore;
 
-//// 1.  kolik obsahuje pole kladných čísel
-//// 2.  kolik obsahuje pole záporných čísel
-//// 3.  sumu kladných hodnot
-//// 4.  největší absolutní hodnotu
-//// 5.  všechna kladná sudá čísla
-//// 6.  seřaďte pole od nejmenších po největší hodnoty,
-//// 7.  přeskočte první 3 prvky a sečtěte zbytek hodnot
-///
+PeopleDbContext context = new PeopleDbContext();
 
-var pocet_kladnych = numbers.Where(x => x > 0).Count();
-Console.WriteLine($"pocet_kladnych: {pocet_kladnych}");
+var lide = context.Persons
+                .Include(x => x.Address)
+                .Where(x => x.Address != null)
+                .Where(x => x.Address.City == "Lanškroun")
+                ;
+//Console.WriteLine($"Lidé v Lanškrouně:");
+//foreach (var person in lide)
+//{
+//    Console.WriteLine($"{person.FirstName} {person.LastName} {person.Address.City} {person.Address.Street}");
+//}
 
-var pocet_zapornych = numbers.Where(x => x < 0).Count();
-Console.WriteLine($"pocet_zapornych: {pocet_zapornych}");
+// 10 osob s nejvíce smlouvami
+var lide2 = context.Persons
+                .Include(x => x.Contracts)
+                .OrderByDescending(x => x.Contracts.Count)
+                .Take(10)
+                ;
+//Console.WriteLine($"10 osob s nejvíce smlouvami:");
+//foreach (var person in lide2)
+//{
+//    Console.WriteLine($"{person.FirstName} {person.LastName} - počet smluv: {person.Contracts.Count}");
+//}
 
-var suma_kladnych = numbers.Where(x => x > 0).Sum();
-Console.WriteLine($"suma_kladnych: {suma_kladnych}");
+// kolik měst
+var cities_count = context.Addresses
+    .Select(x => x.City)
+    .Distinct()
+    .Count();
 
-var nejv_abs = numbers.Select((cislo,index) => Math.Abs(cislo)).Max();
-Console.WriteLine($"nejv_abs: {nejv_abs}");
+Console.WriteLine($"počet měst: {cities_count}");
 
-var kladna_suda = numbers.Where(x => x > 0 && x % 2 == 0);
-Console.WriteLine($"kladna_suda: {string.Join(", ", kladna_suda)}");
+var lide_mesta =
+    context.Persons
+    .Include(x => x.Address)
+    .Where(x => x.Address != null)
+    .GroupBy(x => x.Address!.City)
+    .Select(x => new
+    {
+        City = x.Key,
+        Count = x.Count()
+    })
+    .OrderByDescending(x => x.Count)
+    .Take(10);
 
-var ordered = numbers.OrderBy(x => x);
-Console.WriteLine($"ordered: {string.Join(", ", ordered)}");
-
-var skip3sum = numbers.Skip(3).Sum();
-Console.WriteLine($"skip3sum: {skip3sum}");
-
-
-var index_max_hodnoty = numbers
-    .Select((cislo, index) => new { cislo, index })
-    .OrderByDescending(x => x.cislo)
-    .First();
-
-Console.WriteLine($"nejvetsi cislo {index_max_hodnoty.cislo} je na indexu {index_max_hodnoty.index}");
-    
+foreach (var item in lide_mesta)
+{
+    Console.WriteLine($"{item.City}: {item.Count}");
+}
