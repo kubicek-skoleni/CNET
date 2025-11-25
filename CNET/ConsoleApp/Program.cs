@@ -19,7 +19,7 @@ Console.WriteLine($"pocet_zapornych: {pocet_zapornych}");
 var suma_kladnych = numbers.Where(x => x > 0).Sum();
 Console.WriteLine($"suma_kladnych: {suma_kladnych}");
 
-var nejv_abs = numbers.Select(x => Math.Abs(x)).Max();
+var nejv_abs = numbers.Select((cislo,index) => Math.Abs(cislo)).Max();
 Console.WriteLine($"nejv_abs: {nejv_abs}");
 
 var kladna_suda = numbers.Where(x => x > 0 && x % 2 == 0);
@@ -30,3 +30,12 @@ Console.WriteLine($"ordered: {string.Join(", ", ordered)}");
 
 var skip3sum = numbers.Skip(3).Sum();
 Console.WriteLine($"skip3sum: {skip3sum}");
+
+
+var index_max_hodnoty = numbers
+    .Select((cislo, index) => new { cislo, index })
+    .OrderByDescending(x => x.cislo)
+    .First();
+
+Console.WriteLine($"nejvetsi cislo {index_max_hodnoty.cislo} je na indexu {index_max_hodnoty.index}");
+    
