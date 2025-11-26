@@ -11,6 +11,7 @@
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
             <Button Click="btnOk_Click" x:Name="btnOk" Content="OK" Width="61" Height="63" Background="#FF9FBFD9" FontSize="24" Margin="5"/>
             <Button x:Name="btnSeqAll" Content="Seq All" Width="104" Height="63" Background="#FF9FBFD9" FontSize="24" Margin="5" Click="btnSeqAll_Click"/>
+            <Button x:Name="btnAllAsync" Content="Async All" Width="104" Height="63" Background="#FF9FBFD9" FontSize="24" Margin="5" Click="btnAllAsync_Click" />
 
         </StackPanel>
         
