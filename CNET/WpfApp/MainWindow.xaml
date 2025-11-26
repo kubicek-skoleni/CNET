@@ -9,7 +9,9 @@
     <Grid>
         
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
-            <Button Click="btnOk_Click" x:Name="btnOk" Content="OK" Width="272" Height="63" Background="#FF9FBFD9" FontSize="24"/>
+            <Button Click="btnOk_Click" x:Name="btnOk" Content="OK" Width="61" Height="63" Background="#FF9FBFD9" FontSize="24" Margin="5"/>
+            <Button x:Name="btnSeqAll" Content="Seq All" Width="104" Height="63" Background="#FF9FBFD9" FontSize="24" Margin="5" Click="btnSeqAll_Click"/>
+
         </StackPanel>
         
         <TextBlock Margin="0,100,0,0" Background="Beige" x:Name="txbInfo" TextWrapping="Wrap" Text="TextBlock" FontSize="24"/>
