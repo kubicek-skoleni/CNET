@@ -1,4 +1,5 @@
-﻿using DataAccess;
+﻿using System.Globalization;
+using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Model;
 
@@ -11,7 +12,6 @@ var person = context.Persons
             .ToList()
             .Where(p => p.IsFile())
             .SingleOrDefault();
-
 
 
 
