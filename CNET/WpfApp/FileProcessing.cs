@@ -14,13 +14,14 @@ namespace WpfApp
         {
             var files = Directory.GetFiles(dir);
             Dictionary<string, int> stats = new();
-            var cnt = 0;
+            double cnt = 0;
 
             foreach (var file in files)
             {
                 if (progress != null)
                 {
-                    var report = (file, (double)cnt++ / files.Length * 100);
+                    var filenameOnly = Path.GetFileName(file);
+                    var report = (filenameOnly, Math.Round(cnt++ / files.Count() * 100,1));
                     progress.Report(report);
                 }
                 var words = File.ReadLines(file);
