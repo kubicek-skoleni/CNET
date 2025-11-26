@@ -179,6 +179,8 @@ public partial class MainWindow : Window
 
         var first_result = first.Result;
 
+        await Task.Delay(1000);
+            
         txbInfo.Text += $"Doběhl první task {Environment.NewLine}";
         if (first_result.IsSuccess)
         {
