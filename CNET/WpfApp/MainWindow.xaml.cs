@@ -81,9 +81,39 @@ public partial class MainWindow : Window
 
         var files = Directory.GetFiles(FileProcessing.dir);
         
-        Parallel.ForEach(files, file =>
+        Parallel.ForEach(files,file =>
         {
-            var words = File.ReadLines(file);
+            var words = File.ReadAllLines(file);
+            foreach (var word in words)
+            {
+                FileProcessing.statsConcurrent
+                .AddOrUpdate(word, 1, (key, oldValue) => oldValue + 1);
+            }
+        });
+
+        var top10 = FileProcessing.statsConcurrent.OrderByDescending(kv => kv.Value).Take(10);
+
+        foreach (var kv in top10)
+        {
+            txbInfo.Text += $"{kv.Key}: {kv.Value}{Environment.NewLine}";
+        }
+
+        time.Stop();
+        txbInfo.Text += $"{Environment.NewLine} Time: {time.ElapsedMilliseconds} ms";
+
+    }
+
+    private async void btnAllParallelAsync_Click(object sender, RoutedEventArgs e)
+    {
+        Stopwatch time = new Stopwatch();
+        time.Start();
+        txbInfo.Text = "";
+
+        var files = Directory.GetFiles(FileProcessing.dir);
+
+        await Parallel.ForEachAsync(files, async (file, cancellationToken) =>
+        {
+            var words = File.ReadAllLines(file);
             foreach (var word in words)
             {
                 FileProcessing.statsConcurrent
