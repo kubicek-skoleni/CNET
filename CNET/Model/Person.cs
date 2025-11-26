@@ -26,4 +26,13 @@ public class Person
     public DateTime DateOfBirth { get; set; }
     public Address? Address { get; set; }
     public List<Contract> Contracts { get; set; }
+
+    public bool IsFile()
+    {
+        return File.Exists("dataset.txt");
+    }
+
+    override public string ToString()
+    => $"{FirstName} {LastName} ({Email}) {Address}";
+   
 }
