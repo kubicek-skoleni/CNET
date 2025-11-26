@@ -132,4 +132,64 @@ public partial class MainWindow : Window
         txbInfo.Text += $"{Environment.NewLine} Time: {time.ElapsedMilliseconds} ms";
 
     }
+
+    private void btnTasks1_Click(object sender, RoutedEventArgs e)
+    {
+        Stopwatch time = new Stopwatch();
+        time.Start();
+        txbInfo.Text = "";
+
+        string[] urls = [
+            "https://seznam.cz",
+            "https://komfi.cz",
+            "https://novinky.cz"
+        ];
+
+        var task3 = Task.Run(() => WebLoad.LoadUrl(urls[2]));
+        var task1 = Task.Run(() => WebLoad.LoadUrl(urls[0]));
+        var task2 = Task.Run(() => WebLoad.LoadUrl(urls[1]));
+        
+        Task[] tasks = [ task1, task3, task2];
+
+        var first = Task.WaitAny(tasks);
+               
+        txbInfo.Text += $"Doběhl první task: {urls[first]}";
+
+        time.Stop();
+        txbInfo.Text += $"{Environment.NewLine} Time: {time.ElapsedMilliseconds} ms";
+    }
+
+    private async void btnTasks2_Click(object sender, RoutedEventArgs e)
+    {
+        Stopwatch time = new Stopwatch();
+        time.Start();
+        txbInfo.Text = "";
+
+        string[] urls = [
+            "https://seznam.cz",
+            "https://komfi.cz",
+            "https://novinky.cz"
+        ];
+
+        var task3 = Task.Run(() => WebLoad.LoadUrl(urls[2]));
+        var task1 = Task.Run(() => WebLoad.LoadUrl(urls[0]));
+        var task2 = Task.Run(() => WebLoad.LoadUrl(urls[1]));
+
+        var first = await Task.WhenAny(task1, task2, task3);
+
+        var first_result = first.Result;
+
+        txbInfo.Text += $"Doběhl první task {Environment.NewLine}";
+        if (first_result.IsSuccess)
+        {
+            txbInfo.Text += $"length: {first_result.Content.Length}";
+        }
+        else
+        {
+            txbInfo.Text += $"error: {first_result.ErrorMessage}";
+        }
+
+        time.Stop();
+        txbInfo.Text += $"{Environment.NewLine} Time: {time.ElapsedMilliseconds} ms";
+    }
 }

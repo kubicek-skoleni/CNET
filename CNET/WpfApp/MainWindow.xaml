@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d" Background="Bisque"
-        Title="MainWindow" Height="400" Width="450">
+        Title="MainWindow" Height="400" Width="900">
     <Grid>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
             <Button Click="btnOk_Click" x:Name="btnOk" Content="OK" Width="61" Height="63" Background="#FF9FBFD9" FontSize="24" Margin="5"/>
@@ -13,6 +13,8 @@
             <Button x:Name="btnAllAsync" Content="Async All" Width="104" Height="63" Background="#FF9FBFD9" FontSize="24" Margin="5" Click="btnAllAsync_Click" />
             <Button x:Name="btnAllParallel" Content="Parallel All" Width="120" Height="63" Background="#FF9FBFD9" FontSize="24" Margin="5" Click="btnAllParallel_Click" />
             <Button x:Name="btnAllParallelAsync" Content="Async Parallel" Width="120" Height="63" Background="#FF9FBFD9" FontSize="24" Margin="5" Click="btnAllParallelAsync_Click" />
+            <Button x:Name="btnTasks1" Content="Tasks 1" Width="120" Height="63" Background="#FF9FBFD9" FontSize="24" Margin="5" Click="btnTasks1_Click" />
+            <Button x:Name="btnTasks2" Content="WhenAny" Width="120" Height="63" Background="#FF9FBFD9" FontSize="24" Margin="5" Click="btnTasks2_Click" />
 
 
         </StackPanel>
