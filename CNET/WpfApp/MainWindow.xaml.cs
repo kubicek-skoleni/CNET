@@ -24,7 +24,7 @@ public partial class MainWindow : Window
 
     private void btnOk_Click(object sender, RoutedEventArgs e)
     {
-        txbInfo.Text = "Hello WPF!";
+        btnOk.Background = (btnOk.Background == Brushes.Aqua) ? Brushes.BlueViolet : Brushes.Aqua;
     }
 
     private void btnSeqAll_Click(object sender, RoutedEventArgs e)
@@ -45,7 +45,7 @@ public partial class MainWindow : Window
         txbInfo.Text += $"{Environment.NewLine} Time: {time.ElapsedMilliseconds} ms";
     }
 
-    private void btnAllAsync_Click(object sender, RoutedEventArgs e)
+    private async void btnAllAsync_Click(object sender, RoutedEventArgs e)
     {
         Mouse.OverrideCursor = Cursors.Wait;
 
@@ -53,8 +53,8 @@ public partial class MainWindow : Window
         time.Start();
 
         txbInfo.Text = "";
-       
-        var top10 = FileProcessing.StatsAllFile();
+
+        var top10 = await Task.Run(() => FileProcessing.StatsAllFile());
 
         foreach (var kv in top10)
         {
