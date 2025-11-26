@@ -69,24 +69,8 @@ public partial class MainWindow : Window
         time.Start();
 
         txbInfo.Text = "";
-        string dir = @"C:\PROJECTS\skoleni\2025_komfi\BigFiles";
-        var files = Directory.GetFiles(dir);
-
-        Dictionary<string, int> stats = new();
-        foreach (var file in files)
-        {
-            var words = File.ReadLines(file);
-
-            foreach (var word in words)
-            {
-                if (stats.ContainsKey(word))
-                    stats[word]++;
-                else
-                    stats[word] = 1;
-            }
-        }
-
-        var top10 = stats.OrderByDescending(kv => kv.Value).Take(10);
+       
+        var top10 = FileProcessing.StatsAllFile();
 
         foreach (var kv in top10)
         {
