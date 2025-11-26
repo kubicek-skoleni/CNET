@@ -10,13 +10,16 @@ namespace WpfApp
     class FileProcessing
     {
         private static readonly string dir = @"C:\PROJECTS\skoleni\2025_komfi\BigFiles";
-        public static Dictionary<string, int> StatsAllFile()
+        public static Dictionary<string, int> StatsAllFile(IProgress<(string file, double percent)> progress)
         {
             var files = Directory.GetFiles(dir);
             Dictionary<string, int> stats = new();
+            var cnt = 0;
 
             foreach (var file in files)
             {
+                var report = (file, (double)cnt++ / files.Length * 100);
+                progress.Report(report);
                 var words = File.ReadLines(file);
 
                 foreach (var word in words)

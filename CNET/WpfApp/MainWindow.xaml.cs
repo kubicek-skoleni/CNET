@@ -54,7 +54,13 @@ public partial class MainWindow : Window
 
         txbInfo.Text = "";
 
-        var top10 = await Task.Run(() => FileProcessing.StatsAllFile());
+        IProgress<(string file, double percent)> progress 
+            = new Progress<(string file, double percent)>(tuple =>
+        {
+            txbInfo.Text += $"zpracovávám soubor {tuple.file}: {tuple.Item2}% hotovo {Environment.NewLine}";
+        });
+
+        var top10 = await Task.Run(() => FileProcessing.StatsAllFile(progress));
 
         foreach (var kv in top10)
         {
