@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,7 +10,10 @@ namespace WpfApp
 {
     class FileProcessing
     {
-        private static readonly string dir = @"C:\PROJECTS\skoleni\2025_komfi\BigFiles";
+        public static ConcurrentDictionary<string,int> statsConcurrent 
+            = new ();
+
+        public static readonly string dir = @"C:\PROJECTS\skoleni\2025_komfi\BigFiles";
         public static Dictionary<string, int> StatsAllFile(IProgress<(string file, double percent)> progress = null)
         {
             var files = Directory.GetFiles(dir);
