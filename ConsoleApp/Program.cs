@@ -14,6 +14,9 @@ Console.WriteLine($"b: {b}");
 string numberStr = "12345";
 
 int number = int.Parse(numberStr);
+double.Parse("123.45");
+var d = DateTime.Parse("2024-06-01");
+d.ToString("dd. MM. yyyy");
 
 number = number + 1;
 
@@ -26,5 +29,6 @@ string hourlyRateAsString = hourlyrate.ToString();
 Console.WriteLine(hourlyRateAsString);
 
 int hourlyRateAsInt = (int)Math.Round(hourlyrate, 0, MidpointRounding.AwayFromZero);
+
 
 Console.WriteLine($"hourlyRateAsInt: {hourlyRateAsInt}");
