@@ -1,34 +1,20 @@
-﻿var company = "tech corp";
-var yearsofexperience = 5;
-var hourlyrate = 346.50;
-int totalearnings = yearsofexperience * 2000 * (int)hourlyrate;
+﻿string firstName = "        Alice";
+string lastName = "Johnson    ";
 
-int a = 10;
-byte b = 255;
+//string je immutable - nemění se - vytváří se nový
+var upper_alice = firstName.ToUpper();
 
-//b = (byte)a;
-b = (byte)hourlyrate;
+Console.WriteLine($"fristName: {firstName}");
+Console.WriteLine($"upper_alice: {upper_alice}");
 
-Console.WriteLine($"b: {b}");
+string fullName = firstName + " " + lastName;
 
-string numberStr = "12345";
+Console.WriteLine($"Lowercase: {fullName.ToLower()}");
 
-int number = int.Parse(numberStr);
-double.Parse("123.45");
-var d = DateTime.Parse("2024-06-01");
-d.ToString("dd. MM. yyyy");
+bool statrs_alic = fullName.StartsWith("Alic");
 
-number = number + 1;
+var trimmed = fullName.Trim();
 
-Console.WriteLine($"number: {number}");
+Console.WriteLine($"Trimmed: {trimmed}");
 
-string numberAsString = number.ToString();
-
-string hourlyRateAsString = hourlyrate.ToString();
-
-Console.WriteLine(hourlyRateAsString);
-
-int hourlyRateAsInt = (int)Math.Round(hourlyrate, 0, MidpointRounding.AwayFromZero);
-
-
-Console.WriteLine($"hourlyRateAsInt: {hourlyRateAsInt}");
+bool contains_john = fullName.Contains("John");
