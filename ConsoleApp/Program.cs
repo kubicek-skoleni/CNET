@@ -1,29 +1,23 @@
-﻿int vek = 20;
-bool maPrukaz = false;
+﻿Console.WriteLine("Zadej číslo 1-7 a zmáčkni enter:");
 
-//if (vek >= 18)
-//{
-//    if (maPrukaz)
-//        Console.WriteLine("Může řídit.");
-//}
-//else
-//{
-//    Console.WriteLine("Je mladší než 18.");
-//}
+string? line = Console.ReadLine();
 
-//if (vek < 18)
-//{
-//    Console.WriteLine("Vstup zakázán.");
-//    Console.WriteLine("Přijď, až ti bude 18.");
-//}
+int dayNumber = int.Parse(line);
 
-int skore = 95;
-if (skore >= 50)
-    Console.WriteLine("prospěl");
-else if (skore >= 90)
-    Console.WriteLine("výborně");
-
-if (skore >= 90)
-    Console.WriteLine("výborně");
-else if (skore >= 50)
-    Console.WriteLine("prospěl");
+switch (dayNumber)
+{
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+        Console.WriteLine("pracovní den");
+        break;
+    case 6:
+    case 7:
+        Console.WriteLine("víkend");
+        break;
+    default:
+        Console.WriteLine("číslo mimo rozsah!");
+        break;
+}
