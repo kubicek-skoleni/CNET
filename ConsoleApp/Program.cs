@@ -1,23 +1,11 @@
-﻿// C# je "strongly typed" jazyk
+﻿
+//implicitní typování proměnných
+//proměnné mají svůj typ - daný (odvozený) z hodnoty, kterou přiřadíme
 
-int age = 25; // integer - zbytek řádku je komentář
+var company = "Tech Corp";
 
-double salary = 75000.5;
+var yearsOfExperience = 5;
 
-string name = "John Doe";
-int delka = name.Length;
-
-bool isEmployed = true;
-
-char grade = 'A';
-
-decimal price = 19.99m;
-
-/* blokový komentář
-Console.WriteLine($"Name: {name}");
-Console.WriteLine($"Age: {age}");
-Console.WriteLine($"Salary: ${salary:N2}");
-Console.WriteLine($"Employed: {isEmployed}");
-*/
+var hourlyRate = 345.50;
 
 
