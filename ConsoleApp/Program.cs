@@ -1,11 +1,23 @@
-﻿Console.WriteLine("Jak se jmenuješ?");
+﻿// C# je "strongly typed" jazyk
 
-string jmeno = Console.ReadLine();
+int age = 25; // integer - zbytek řádku je komentář
 
-Console.Write("Ahoj, ");
-Console.WriteLine(jmeno);
+double salary = 75000.5;
 
-Console.WriteLine($"Tvoje jméno má {jmeno.Length} písmen.");
+string name = "John Doe";
+int delka = name.Length;
+
+bool isEmployed = true;
+
+char grade = 'A';
+
+decimal price = 19.99m;
+
+/* blokový komentář
+Console.WriteLine($"Name: {name}");
+Console.WriteLine($"Age: {age}");
+Console.WriteLine($"Salary: ${salary:N2}");
+Console.WriteLine($"Employed: {isEmployed}");
+*/
 
 
-// novy github jmeno
