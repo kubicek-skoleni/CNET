@@ -8,3 +8,4 @@ Console.WriteLine(jmeno);
 Console.WriteLine($"Tvoje jméno má {jmeno.Length} písmen.");
 
 
+// novy github jmeno
