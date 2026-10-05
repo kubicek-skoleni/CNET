@@ -1,7 +1,4 @@
-﻿
-using System.Globalization;
-
-var company = "tech corp";
+﻿var company = "tech corp";
 var yearsofexperience = 5;
 var hourlyrate = 346.50;
 int totalearnings = yearsofexperience * 2000 * (int)hourlyrate;
