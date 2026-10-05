@@ -1,20 +1,29 @@
-﻿int skore = 70;
+﻿int vek = 20;
+bool maPrukaz = false;
 
-// varianta A
-if (skore >= 90)
-    Console.WriteLine("A: výborně");
-else if (skore >= 50)
-    Console.WriteLine("A: prospěl");
-else
-    Console.WriteLine("A: neprospěl");
+//if (vek >= 18)
+//{
+//    if (maPrukaz)
+//        Console.WriteLine("Může řídit.");
+//}
+//else
+//{
+//    Console.WriteLine("Je mladší než 18.");
+//}
 
-// varianta B
-if (skore >= 90)
-    Console.WriteLine("B: výborně");
+//if (vek < 18)
+//{
+//    Console.WriteLine("Vstup zakázán.");
+//    Console.WriteLine("Přijď, až ti bude 18.");
+//}
+
+int skore = 95;
 if (skore >= 50)
-    Console.WriteLine("B: prospěl");
-else
-    Console.WriteLine("B: neprospěl");
+    Console.WriteLine("prospěl");
+else if (skore >= 90)
+    Console.WriteLine("výborně");
 
-
-// if je nový začátek
+if (skore >= 90)
+    Console.WriteLine("výborně");
+else if (skore >= 50)
+    Console.WriteLine("prospěl");
