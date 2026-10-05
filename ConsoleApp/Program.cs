@@ -1,13 +1,20 @@
-﻿
-//  Zadání: načti věk a vypiš, jestli je člověk plnoletý.
+﻿int skore = 70;
 
-Console.WriteLine("zadej věk:");
-
-string input = Console.ReadLine();
-
-int age = int.Parse(input);
-
-if (age >= 18)
-    Console.WriteLine("Jste plnoletý/á.");
+// varianta A
+if (skore >= 90)
+    Console.WriteLine("A: výborně");
+else if (skore >= 50)
+    Console.WriteLine("A: prospěl");
 else
-    Console.WriteLine("Nejste plnoletý/á.");
+    Console.WriteLine("A: neprospěl");
+
+// varianta B
+if (skore >= 90)
+    Console.WriteLine("B: výborně");
+if (skore >= 50)
+    Console.WriteLine("B: prospěl");
+else
+    Console.WriteLine("B: neprospěl");
+
+
+// if je nový začátek
