@@ -1,10 +1,25 @@
-﻿string email = "alice.johnson@company.com";
+﻿// program se zeptá na jméno a firmu.
+// Pak vytiskne jmenovku v rámečku z hvězdiček.
+// Jméno bude velkými písmeny.
 
-int atIndex = email.IndexOf("john");
+/*
+******************************
+* JAN NOVÁK                  *
+* Firma s.r.o.               *
+******************************
 
-Console.WriteLine($"Index of 'john': {atIndex}");
+*/
 
-var sub = email.Substring(atIndex, 4);
+Console.Write("Jméno: ");
+string jmeno = Console.ReadLine();
 
-string filePath = @"C:\Users\Documents\file.txt";
+Console.Write("Firma: ");
+string firma = Console.ReadLine();
 
+string hvezdicky = "******************************";
+int sirka = hvezdicky.Length;
+
+Console.WriteLine(hvezdicky);
+Console.WriteLine($"* {jmeno.ToUpper().PadRight(sirka -4) } *");
+Console.WriteLine($"* {firma.PadRight(sirka - 4)} *");
+Console.WriteLine(hvezdicky);
