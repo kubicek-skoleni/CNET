@@ -1,25 +1,15 @@
-﻿// program se zeptá na jméno a firmu.
-// Pak vytiskne jmenovku v rámečku z hvězdiček.
-// Jméno bude velkými písmeny.
+﻿int score = 85;
+string grade;
 
-/*
-******************************
-* JAN NOVÁK                  *
-* Firma s.r.o.               *
-******************************
+if (score >= 90)
+    grade = "A";
+else if (score >= 80)
+    grade = "B";
+else if (score >= 70)
+    grade = "C";
+else if (score >= 60)
+    grade = "D";
+else
+    grade = "F";
 
-*/
-
-Console.Write("Jméno: ");
-string jmeno = Console.ReadLine();
-
-Console.Write("Firma: ");
-string firma = Console.ReadLine();
-
-string hvezdicky = "******************************";
-int sirka = hvezdicky.Length;
-
-Console.WriteLine(hvezdicky);
-Console.WriteLine($"* {jmeno.ToUpper().PadRight(sirka -4) } *");
-Console.WriteLine($"* {firma.PadRight(sirka - 4)} *");
-Console.WriteLine(hvezdicky);
+Console.WriteLine($"jsem za ifem. grade je {grade}");
