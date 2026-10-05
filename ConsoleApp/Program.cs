@@ -1,17 +1,33 @@
 ﻿
-//implicitní typování proměnných
-//proměnné mají svůj typ - daný (odvozený) z hodnoty, kterou přiřadíme
+using System.Globalization;
 
-var company = "Tech Corp";
+var company = "tech corp";
+var yearsofexperience = 5;
+var hourlyrate = 346.50;
+int totalearnings = yearsofexperience * 2000 * (int)hourlyrate;
 
-var yearsOfExperience = 5;
+int a = 10;
+byte b = 255;
 
-var hourlyRate = 345.50;
+//b = (byte)a;
+b = (byte)hourlyrate;
 
-int totalEarnings = yearsOfExperience * 2000 * (int)hourlyRate;
+Console.WriteLine($"b: {b}");
 
-company = "Tech Solutions";
+string numberStr = "12345";
 
-yearsOfExperience = yearsOfExperience * 10;
+int number = int.Parse(numberStr);
 
+number = number + 1;
 
+Console.WriteLine($"number: {number}");
+
+string numberAsString = number.ToString();
+
+string hourlyRateAsString = hourlyrate.ToString();
+
+Console.WriteLine(hourlyRateAsString);
+
+int hourlyRateAsInt = (int)Math.Round(hourlyrate, 0, MidpointRounding.AwayFromZero);
+
+Console.WriteLine($"hourlyRateAsInt: {hourlyRateAsInt}");
