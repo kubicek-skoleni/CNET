@@ -1,15 +1,13 @@
-﻿int score = 85;
-string grade;
+﻿
+//  Zadání: načti věk a vypiš, jestli je člověk plnoletý.
 
-if (score >= 90)
-    grade = "A";
-else if (score >= 80)
-    grade = "B";
-else if (score >= 70)
-    grade = "C";
-else if (score >= 60)
-    grade = "D";
+Console.WriteLine("zadej věk:");
+
+string input = Console.ReadLine();
+
+int age = int.Parse(input);
+
+if (age >= 18)
+    Console.WriteLine("Jste plnoletý/á.");
 else
-    grade = "F";
-
-Console.WriteLine($"jsem za ifem. grade je {grade}");
+    Console.WriteLine("Nejste plnoletý/á.");
