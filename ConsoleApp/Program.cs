@@ -1,20 +1,10 @@
-﻿string firstName = "        Alice";
-string lastName = "Johnson    ";
+﻿string email = "alice.johnson@company.com";
 
-//string je immutable - nemění se - vytváří se nový
-var upper_alice = firstName.ToUpper();
+int atIndex = email.IndexOf("john");
 
-Console.WriteLine($"fristName: {firstName}");
-Console.WriteLine($"upper_alice: {upper_alice}");
+Console.WriteLine($"Index of 'john': {atIndex}");
 
-string fullName = firstName + " " + lastName;
+var sub = email.Substring(atIndex, 4);
 
-Console.WriteLine($"Lowercase: {fullName.ToLower()}");
+string filePath = @"C:\Users\Documents\file.txt";
 
-bool statrs_alic = fullName.StartsWith("Alic");
-
-var trimmed = fullName.Trim();
-
-Console.WriteLine($"Trimmed: {trimmed}");
-
-bool contains_john = fullName.Contains("John");
