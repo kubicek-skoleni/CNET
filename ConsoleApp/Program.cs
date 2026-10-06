@@ -1,17 +1,18 @@
 ﻿
-// Metoda je pojmenovaný kus kódu, který jde zavolat opakovaně.
+// Metoda na výpočet věku z roku narození
 
+// navratovy_typ Jmeno(typ param1, typ param2) { return hodnota; }
 
-int[] teploty_celsius = [-10, 0, 15, 20, 25, 30, 35];
-
-foreach(int teplota_c in teploty_celsius)
+int Age(int rokNarozeni)
 {
-    double teplota_f = FromCelsiusToFahrenheit(teplota_c);
-    Console.WriteLine($"{teplota_c} °C = {teplota_f} °F");
+    var aktualniRok = DateTime.Now.Year;
+    int vek = aktualniRok - rokNarozeni;
+    return vek;
 }
 
-double FromCelsiusToFahrenheit(double celsius)
+// metoda která vrátí celé jméno z firstName + lastName => FullName
+
+string FullName(string firstName, string lastName)
 {
-    double fahrenheit = (celsius * 9 / 5) + 32;
-    return fahrenheit;
+    return $"{firstName} {lastName}";
 }
