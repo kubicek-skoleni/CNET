@@ -1,25 +1,17 @@
-﻿// počítač si myslí číslo od 1 do 100
-// Hráč hádá, program odpovídá „víc“ nebo „míň“.
-// Na konci vypíše počet pokusů.
+﻿
+// Metoda je pojmenovaný kus kódu, který jde zavolat opakovaně.
 
-int tajne = Random.Shared.Next(1, 101);
-int pokusy = 0;
-int tip = 0;
 
-Console.WriteLine("Myslím si číslo od 1 do 100. Hádej!");
+int[] teploty_celsius = [-10, 0, 15, 20, 25, 30, 35];
 
-while (tip != tajne)
+foreach(int teplota_c in teploty_celsius)
 {
-    Console.Write("Tvůj tip: ");
-    tip = int.Parse(Console.ReadLine());
-    
-    if (tip < tajne)
-            Console.WriteLine("Víc!");
-    
-    if (tip > tajne)
-            Console.WriteLine("Míň!");
-    
-    pokusy++;
+    double teplota_f = FromCelsiusToFahrenheit(teplota_c);
+    Console.WriteLine($"{teplota_c} °C = {teplota_f} °F");
 }
 
-Console.WriteLine($"Trefa! Uhodl jsi na {pokusy}. pokus.");
+double FromCelsiusToFahrenheit(double celsius)
+{
+    double fahrenheit = (celsius * 9 / 5) + 32;
+    return fahrenheit;
+}
