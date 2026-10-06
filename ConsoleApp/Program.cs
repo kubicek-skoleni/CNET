@@ -1,15 +1,15 @@
-﻿// auto (car)
-
-// SPZ, rok vyroby, jestli bylo bourané, značka (brand)
+﻿// Adresa: ulice, číslo popisné, město, PSČ a stát.
+// Metoda "NaJedenRadek()" vrátí (string) adresu na jednom řádku.
 
 using ConsoleApp;
 
-Auto skodovka = new()
+Adresa adr = new()
 {
-    SPZ = "ABX123",
-    Bourane = false,
-    Brand = "škoda",
-    RokVyroby = 2023
+    Ulice = "Hořejší",
+    CisloPopisne = 33,
+    Mesto = "Plzeň",
+    PSC = "30500",
+    Stat = "CZ",
 };
 
-Console.WriteLine(skodovka.Brand + " " + skodovka.SPZ);
+Console.WriteLine(adr.NaJedenRadek());
