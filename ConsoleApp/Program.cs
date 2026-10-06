@@ -1,18 +1,17 @@
 ﻿
-// Metoda na výpočet věku z roku narození
+// udělejte metodu která dostane na vstup dvě čísla (int)
+// a vrátí větší z nich
 
-// navratovy_typ Jmeno(typ param1, typ param2) { return hodnota; }
+int a = 10;
+int b = 11;
 
-int Age(int rokNarozeni)
+int v = Vetsi(a, b);
+Console.WriteLine($"větši z {a} a {b} je {v}");
+
+int Vetsi(int cislo1, int cislo2)
 {
-    var aktualniRok = DateTime.Now.Year;
-    int vek = aktualniRok - rokNarozeni;
-    return vek;
-}
-
-// metoda která vrátí celé jméno z firstName + lastName => FullName
-
-string FullName(string firstName, string lastName)
-{
-    return $"{firstName} {lastName}";
+    if (cislo1 < cislo2)
+        return cislo2;
+    else
+        return cislo1;
 }
