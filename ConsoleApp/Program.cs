@@ -1,44 +1,29 @@
-﻿//for loop
-for (int i = 1; i <= 10; i = i + 2)
+﻿int a = 7;
+int b = 2;
+
+// aritmetické
+Console.WriteLine(a + b);        // 9
+Console.WriteLine(a - b);        // 5
+Console.WriteLine(a * b);        // 14
+Console.WriteLine(a / b);        // 3   celočíselné dělení, zbytek se zahodí
+Console.WriteLine(a % b);        // 1   zbytek po dělení
+Console.WriteLine(a / 2.0);      // 3,5 jedna strana je double, dělí se desetinně
+
+// zkrácené přiřazení
+a += 3;                          // a = a + 3;  → 10
+a -= 1;                          // 9
+a *= 2;                          // 18
+a++;                             // 19
+a--;                             // 18
+
+int c = 7;
+int vysledek = (c > 5) ? 1 : 2;
+
+if (c > 5)
 {
-    Console.Write($"{i} ");
+    vysledek = 1;
 }
-Console.WriteLine();
-Console.WriteLine("jsem za cyklem");
-
-
-//while loop
-Console.Write("While loop (countdown): ");
-int countdown = 5;
-
-while (countdown > 0)
+else
 {
-    Console.WriteLine($"{countdown} ");
-    countdown--;
+    vysledek = 2;
 }
-Console.WriteLine("Blast off!");
-
-// kolekce:
-
-List<int> numbers = [2, 5, 6];
-List<string> fruits = ["Apple", "Banana", "Orange", "Grape"];
-fruits.Add("Mango");
-
-List<string> vegetables = new ();
-   vegetables.Add("Carrot");
-   vegetables.Add("Broccoli");
-
-
-//foreach loop
-foreach (var fruit in fruits)
-{
-    Console.WriteLine(fruit);
-}
-
-fruits.Count();
-numbers.Count();
-
-var prvni = fruits[0];
-
-Console.WriteLine($"fruits[0]: {prvni}");
-

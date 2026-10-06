@@ -1,0 +1,69 @@
+c# strongly typed
+ - definované proměnné
+ - datový typ
+
+jaké datové typy znáte
+ - string, bool, char, int, uint, long
+	double, decimal,..
+
+klíčové slovo var
+ - var promenna = "xsx";
+ - implicitní typování (vs explicitní)
+
+převod typů
+ - parsování : ze stringu na int/double/datetime..
+ - .ToString() => opak - int/double/date na string
+ - byte to int => jde
+ - int to byte => problém, nevleze se
+	byte b = (byte)i;
+ - Math.Round(vstup,..)
+ - int i = (int)d;
+
+string
+ - vlastnost - immutable
+ - modifikace - s.ToLower() => vrátí nový string !!
+
+string metody:
+ - ToUpper(), ToLower(), Lenght, IndexOf(), Contains(), StartsWith(), Substring()
+
+if / else if / else
+ - whitespace
+
+if(podminka)
+	prikaz;
+
+druhyprikaz;
+
+switch
+switch expression
+
+operatory: logické && and,  || or, ! negace
+           == !=
+	   >, <, >=, <=,
+	   =>
+
+komentáře
+//
+/*  ... */ 
+CTRL K C
+CTRL K U
+
+cykly (smyčky)
+
+for(int i = 0; i < 10; i++)
+{
+	//příkazy opakuj
+}
+
+while(podmínka)
+{
+	//dělej
+}
+
+foreach(var item in kolekce)
+{
+	//dělej - item
+}
+
+Kolekce:
+List, pole (array)
