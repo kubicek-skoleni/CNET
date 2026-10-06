@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Channels;
+
+namespace ConsoleApp
+{
+    internal class Student
+    {
+        public string Jmeno;
+        public string Prijmeni;
+
+        public string Trida;
+
+        public int RokNarozeni;
+
+        public string Adresa;
+
+        public int Vek()
+        {
+            int aktualniRok = DateTime.Now.Year;
+            return aktualniRok - RokNarozeni;
+        }
+
+        public string CeleJmeno()
+        {
+            return $"{Jmeno} {Prijmeni}";
+        }
+    }
+}

@@ -1,12 +1,31 @@
-﻿
-//metoda bez návratu
+﻿using ConsoleApp;
+
+Console.WriteLine("školní systém");
+
+int x = 5;
+
+Student student1 = new();
+student1.Jmeno = "Pavel";
+student1.Prijmeni = "Novák";
+student1.RokNarozeni = 2000;
+student1.Trida = "B";
+student1.Adresa = "Dolní 52, Praha";
 
 
-Greet("Martin");
-Greet("Jakub");
-Greet("Lojza");
+Console.WriteLine($"jméno: {student1.Jmeno}");
+// ************************
+var vek1 = student1.Vek();
+// ************************
+Console.WriteLine($"{student1.CeleJmeno()} má {student1.Vek()}");
 
-void Greet(string name)
+//inicializator
+Student student2 = new()
 {
-    Console.WriteLine($"Hello, {name}!");
-}
+    Jmeno = "Eva",
+    Prijmeni = "Svobodová",
+    Trida = "2.B",
+    RokNarozeni = 2008
+};
+Console.WriteLine($"{student2.CeleJmeno()} má {student2.Vek()}");
+
+
