@@ -10,8 +10,7 @@ Console.WriteLine($"větši z {a} a {b} je {v}");
 
 int Vetsi(int cislo1, int cislo2)
 {
-    if (cislo1 < cislo2)
-        return cislo2;
-    else
-        return cislo1;
+    return (cislo1 < cislo2) ? cislo2 : cislo1;
 }
+
+// (podminka) ? vrat1 : vrat2;
