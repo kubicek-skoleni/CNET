@@ -13,7 +13,7 @@ while (tip != tajne)
     Console.Write("Tvůj tip: ");
     tip = int.Parse(Console.ReadLine());
     
-    if(tip < tajne)
+    if (tip < tajne)
             Console.WriteLine("Víc!");
     
     if (tip > tajne)
