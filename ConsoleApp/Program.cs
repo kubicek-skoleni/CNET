@@ -1,16 +1,30 @@
-﻿
-// udělejte metodu která dostane na vstup dvě čísla (int)
-// a vrátí větší z nich
+﻿// Metoda zjistí, jestli je celé číslo sudé.
 
-int a = 10;
-int b = 11;
+//int JeSude(int cislo)
 
-int v = Vetsi(a, b);
-Console.WriteLine($"větši z {a} a {b} je {v}");
+// Metoda spočítá obsah obdélníku ze dvou stran.
 
-int Vetsi(int cislo1, int cislo2)
+//double Obsah(double a, double b)
+
+// Metoda zopakuje text zadaný počet krát a
+// výsledek vrátí jako jeden řetězec.
+
+string Opakuj(int pocetOpakovani, string text)
 {
-    return (cislo1 < cislo2) ? cislo2 : cislo1;
+    string vysledek = "";
+
+    for(int i = 0; i < pocetOpakovani; i++)
+    {
+        vysledek += text;
+    }
+
+    return vysledek;
 }
 
-// (podminka) ? vrat1 : vrat2;
+Console.WriteLine("Zadej text, který chceš opakovat");
+var text = Console.ReadLine();
+Console.WriteLine("Zadej kolikrát: ");
+var opakovani = int.Parse(Console.ReadLine());
+var vysledek = Opakuj(opakovani, text);
+Console.WriteLine(vysledek);
+

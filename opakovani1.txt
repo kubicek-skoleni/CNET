@@ -41,6 +41,7 @@ operatory: logické && and,  || or, ! negace
            == !=
 	   >, <, >=, <=,
 	   =>
+ternarni operator: (podminka) ? vrat1 : vrat2;
 
 komentáře
 //
