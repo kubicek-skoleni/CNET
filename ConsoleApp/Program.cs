@@ -1,15 +1,14 @@
-﻿// Adresa: ulice, číslo popisné, město, PSČ a stát.
-// Metoda "NaJedenRadek()" vrátí (string) adresu na jednom řádku.
-
-using ConsoleApp;
-
-Adresa adr = new()
+﻿public class BankovniUcet
 {
-    Ulice = "Hořejší",
-    CisloPopisne = 33,
-    Mesto = "Plzeň",
-    PSC = "30500",
-    Stat = "CZ",
-};
+    private decimal _zustatek;
+    public string MajitelUctu;
+    public const int MaxPocetVyberu = 5;
 
-Console.WriteLine(adr.NaJedenRadek());
+    public bool VyberPenez(decimal castka)
+    {
+        decimal NovyZustatek = _zustatek - castka;
+        if (NovyZustatek < 0) return false;
+        _zustatek = NovyZustatek;
+        return true;
+    }
+}

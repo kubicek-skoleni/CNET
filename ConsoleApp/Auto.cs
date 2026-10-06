@@ -6,7 +6,7 @@ namespace ConsoleApp
 {
     internal class Auto
     {
-        // SPZ, rok vyroby, jestli bylo bourané, značka (brand)
+        private int _najeteKilometry;
 
         public string SPZ;
 
@@ -15,5 +15,10 @@ namespace ConsoleApp
         public bool Bourane;
 
         public string Brand;
+
+        public void PridejKilometry(int km)
+        {
+            _najeteKilometry += km;
+        }
     }
 }
