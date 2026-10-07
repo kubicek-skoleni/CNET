@@ -1,4 +1,6 @@
-﻿// uživatel zadává studenty: jméno, příjmení, třída, rok narození
+﻿using ConsoleApp;
+
+// uživatel zadává studenty: jméno, příjmení, třída, rok narození
 // každý student je jeden řádek v souboru studenti.txt
 // po zadání program soubor uloží
 // jmeno;prijmeni;trida;rok
@@ -8,6 +10,8 @@
 
 
 // ******** ZADAVANI A ZAPIS DO SOUBORU ***********
+
+
 List<string> radky = new();
 
 Console.Write("Jméno (prázdné = konec): ");
@@ -43,7 +47,25 @@ else
 
 string[] nacteno = File.ReadAllLines("studenti.txt");
 
+List<Student> students = new();
+
 foreach(var radek in nacteno)
 {
     Console.WriteLine(radek);
+
+    string[] prvky = radek.Split(";");
+    var stud_jmeno = prvky[0];
+    var stud_prijmeni = prvky[1];
+    var stud_trida = prvky[2];
+    var stud_rok = prvky[3];
+
+    Student stud = new();
+    stud.Jmeno = stud_jmeno;
+    stud.Prijmeni = stud_prijmeni;
+    stud.Trida = stud_trida;
+    stud.RokNarozeni = int.Parse(stud_rok);
+
+    students.Add(stud);
 }
+
+Console.WriteLine($"V kolekci students je {students.Count()} prvků");
