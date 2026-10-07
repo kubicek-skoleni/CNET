@@ -4,3 +4,28 @@
 // jmeno;prijmeni;trida;rok
 
 
+//while zadání - prázdný řádek ukončení zadávání
+
+List<string> radky = new();
+
+Console.Write("Jméno (prázdné = konec): ");
+string jmeno = Console.ReadLine();
+
+while(!string.IsNullOrEmpty(jmeno)) //signál že končí zadávání je prázdné jméno
+{
+    Console.WriteLine("Zadej příjmení:");
+    var prijmeni = Console.ReadLine();
+    Console.WriteLine("Zadej třídu:");
+    var trida = Console.ReadLine();
+    Console.WriteLine("Zadej rok narození:");
+    var rok = Console.ReadLine();
+
+    var radek = $"{jmeno};{prijmeni};{trida};{rok}";
+    radky.Add(radek);
+
+    Console.Write("Jméno (prázdné = konec): ");
+    jmeno = Console.ReadLine();
+}
+
+File.WriteAllLines("studenti.txt", radky);
+Console.WriteLine($"Uložil jsem {radky.Count()} do studenti.txt");
