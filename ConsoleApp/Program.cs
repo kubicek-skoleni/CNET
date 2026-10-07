@@ -1,35 +1,12 @@
 ﻿
-// tuple - ad hoc združení více hodnot
 using ConsoleApp;
 
-(string pred, string za, int error) Hledej(string input)
-{
-    string textPred = "pred";
-    string textZa = "za";
+int c = 25;
 
-    return (textPred, textZa, 0);
-}
+//volani staticke metody
+var f = Teplota.NaFahrenheit(c);
 
-var result = Hledej("můj text");
+Math.Abs(-50);
 
 
-VysledekHledani Hledej2(string input)
-{
-    VysledekHledani result = new();
 
-    result.TextPred = "text pred";
-    result.TextZa = "za";
-    result.Errors = 0;
-
-    return result;
-}
-
-var vysledek = Hledej2("xxxxx");
-
-Kostka kostka = new(5);
-
-int x = 5;
-
-var pokus = $"{kostka}";
-
-Console.WriteLine(kostka);
