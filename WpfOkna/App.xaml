@@ -1,0 +1,17 @@
+<Application x:Class="WpfOkna.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="ZamekWindow.xaml"
+             ShutdownMode="OnLastWindowClose">
+    <!--
+    StartupUri: první okno, které aplikace po startu otevře. Tady zámek, ne hlavní okno.
+
+    ShutdownMode určuje, kdy aplikace skončí. OnLastWindowClose je výchozí hodnota,
+    je tu zapsaná jen pro názornost. Díky ní může zámek otevřít hlavní okno a pak
+    sám zavřít: aplikace běží dál, dokud je otevřené aspoň jedno okno.
+    Další možnosti:
+      OnMainWindowClose   - konec, když se zavře Application.MainWindow (první otevřené okno,
+                            tady by to byl zámek, takže by hlavní okno zmizelo s ním).
+      OnExplicitShutdown  - konec jen po volání Application.Current.Shutdown().
+    -->
+</Application>

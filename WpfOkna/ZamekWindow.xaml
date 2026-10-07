@@ -1,0 +1,89 @@
+<Window x:Class="WpfOkna.ZamekWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Zámek"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="#90FFFFFF"
+        Topmost="True"
+        WindowState="Maximized"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing"
+        FocusManager.FocusedElement="{Binding ElementName=KodTextBox}">
+    <!--
+    Okno "zámek": překryje celou obrazovku a čeká na kód.
+
+    WindowStyle="None"
+        Bez titulkového pruhu, bez rámečku, bez tlačítek minimalizovat / maximalizovat / zavřít.
+        Okno nejde chytit myší a přesunout. Title se nikde nezobrazí, ale hodí se do Alt+Tab.
+
+    AllowsTransparency="True"
+        Povolí průhledné pixely. Funguje JEN s WindowStyle="None", jinak XAML vyhodí výjimku.
+        Pozor: pixely s alfou 0 (úplně průhledné) propouštějí kliknutí do okna pod nimi.
+        Proto je pozadí #80FFFFFF a ne Transparent: chceme kliknutí zachytit.
+
+    Background="#80FFFFFF"
+        Barva ve formátu #AARRGGBB. 80 hex = 128 = 50 % alfa, FFFFFF = bílá.
+        Jiná cesta je Opacity="0.5" na okně, ta ale zprůhlední i text a tlačítka.
+        Alfa v pozadí nechá obsah okna plně viditelný, průhledné je jen pozadí.
+
+    Topmost="True"
+        Okno zůstane nad všemi ostatními okny, i když klikneme jinam.
+        Nepřebije jiné Topmost okno (dvě Topmost okna se řadí podle toho, které je aktivní).
+
+    WindowState="Maximized"
+        S WindowStyle="None" zabere maximalizované okno CELOU obrazovku včetně hlavního panelu.
+        S normálním WindowStyle by hlavní panel zůstal viditelný.
+        Pokrývá jen monitor, na kterém se okno otevřelo. Pro všechny monitory najednou
+        se místo toho nastaví Left/Top/Width/Height ze SystemParameters.VirtualScreen*.
+
+    ResizeMode="NoResize"
+        Okno nejde zvětšit ani zmenšit, a schová i minimalizaci z nabídky Alt+mezerník.
+        Další hodnoty: CanResize (výchozí), CanMinimize, CanResizeWithGrip.
+
+    ShowInTaskbar="False"
+        Okno nemá tlačítko na hlavním panelu, uživatel ho nemůže minimalizovat kliknutím.
+
+    FocusManager.FocusedElement
+        Kurzor se po otevření rovnou postaví do políčka, uživatel hned píše.
+        Jistota je navíc ve Window_Loaded, viz code-behind.
+
+    Closing="Window_Closing"
+        Alt+F4 zavře i okno bez tlačítek. Obsluha Closing to zruší, dokud není kód správný.
+    -->
+
+    <!-- Border uprostřed obrazovky, neprůhledný, aby formulář šel dobře číst. -->
+    <Border HorizontalAlignment="Center" VerticalAlignment="Center"
+            Background="White" BorderBrush="#404040" BorderThickness="1"
+            CornerRadius="8" Padding="32">
+        <!-- Stín funguje jen díky AllowsTransparency, bez něj se nemá kam vykreslit. -->
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="24" ShadowDepth="0" Opacity="0.4" />
+        </Border.Effect>
+
+        <StackPanel Width="280">
+            <TextBlock Text="Zadej kód" FontSize="22" FontWeight="Bold" Margin="0,0,0,4" />
+            <TextBlock Text="Nápověda: 1234" Foreground="Gray" Margin="0,0,0,16" />
+
+            <!--
+            TextBox je obyčejné textové pole. Pro skutečné heslo se použije PasswordBox,
+            ten text maskuje tečkami a má vlastnost Password místo Text.
+            -->
+            <TextBox x:Name="KodTextBox" FontSize="18" Padding="6" Margin="0,0,0,12"
+                     TextChanged="KodTextBox_TextChanged" />
+
+            <!--
+            IsDefault="True": Enter kdekoli v okně stiskne toto tlačítko.
+            Podobně IsCancel="True" by tlačítko spojilo s klávesou Esc.
+            -->
+            <Button Content="Odemknout" FontSize="16" Padding="0,8" IsDefault="True"
+                    Click="Odemknout_Click" />
+
+            <!-- Chybová hláška, schovaná, dokud uživatel nezadá špatný kód. -->
+            <TextBlock x:Name="ChybaTextBlock" Foreground="Crimson" Margin="0,12,0,0"
+                       TextAlignment="Center" Visibility="Collapsed" />
+        </StackPanel>
+    </Border>
+</Window>

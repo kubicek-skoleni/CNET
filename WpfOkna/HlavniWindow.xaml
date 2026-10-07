@@ -1,0 +1,69 @@
+<Window x:Class="WpfOkna.HlavniWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Hlavní okno - odemčeno"
+        Width="760" Height="620"
+        MinWidth="480" MinHeight="300"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResizeWithGrip"
+        ShowInTaskbar="True"
+        SizeChanged="Window_SizeChanged"
+        StateChanged="Window_StateChanged">
+    <!--
+    Obyčejné okno, pro srovnání se zámkem. Vysvětlení všech vlastností obou oken
+    je vidět přímo v okně, text je v HlavniWindow.xaml.cs (seznam Vlastnosti).
+    -->
+
+    <Window.Resources>
+        <!--
+        Šablona pro jeden záznam Vlastnost. ItemsControl níže ji použije pro každý
+        prvek seznamu. {Binding Nazev} čte vlastnost záznamu, který je v ItemsSource.
+        -->
+        <DataTemplate x:Key="VlastnostSablona">
+            <Grid Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="230" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="{Binding Nazev}" FontFamily="Consolas" FontWeight="Bold" />
+                    <TextBlock Text="{Binding Hodnota}" FontFamily="Consolas" Foreground="DarkSlateBlue" />
+                </StackPanel>
+                <TextBlock Grid.Column="1" Text="{Binding Popis}" TextWrapping="Wrap" />
+            </Grid>
+        </DataTemplate>
+
+        <Style x:Key="Nadpis" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Margin" Value="0,12,0,8" />
+        </Style>
+    </Window.Resources>
+
+    <DockPanel Margin="16">
+        <TextBlock DockPanel.Dock="Top" Text="Odemčeno" FontSize="26" FontWeight="Bold" />
+        <TextBlock DockPanel.Dock="Top" Margin="0,4,0,8" TextWrapping="Wrap"
+                   Text="Toto je normální okno: má titulek, tlačítka minimalizovat, maximalizovat a zavřít, jde přesunout a změnit velikost." />
+
+        <!-- Ukázka: tlačítko otevře zámek znovu, demo se nemusí restartovat. -->
+        <Button DockPanel.Dock="Top" HorizontalAlignment="Left" Padding="12,6"
+                Content="Zamknout znovu" Click="Zamknout_Click" />
+
+        <!-- Stav okna, aktualizuje se při změně velikosti nebo stavu. -->
+        <TextBlock DockPanel.Dock="Bottom" x:Name="StavTextBlock" Foreground="Gray" Margin="0,8,0,0" />
+
+        <!-- Poslední prvek bez Dock vyplní zbytek. ScrollViewer přidá posuvník, když se obsah nevejde. -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,8,0,0">
+            <StackPanel>
+                <TextBlock Style="{StaticResource Nadpis}" Text="Okno zámku (ZamekWindow.xaml)" />
+                <ItemsControl x:Name="ZamekVlastnosti" ItemTemplate="{StaticResource VlastnostSablona}" />
+
+                <TextBlock Style="{StaticResource Nadpis}" Text="Toto okno (HlavniWindow.xaml)" />
+                <ItemsControl x:Name="HlavniVlastnosti" ItemTemplate="{StaticResource VlastnostSablona}" />
+
+                <TextBlock Style="{StaticResource Nadpis}" Text="Aplikace (App.xaml)" />
+                <ItemsControl x:Name="AppVlastnosti" ItemTemplate="{StaticResource VlastnostSablona}" />
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</Window>
