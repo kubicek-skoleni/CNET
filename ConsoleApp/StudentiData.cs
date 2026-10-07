@@ -9,7 +9,27 @@ namespace ConsoleApp
         //staticka metoda na nacteni studentu ze souboru
         public static List<Student> NactiStudenty(string soubor)
         {
-            string[] nacteno = File.ReadAllLines(soubor);
+            string[] nacteno;
+
+            try
+            {
+                nacteno = File.ReadAllLines(soubor);
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine($"Soubor {soubor} zatím není. Začínáme s prázdným seznamem.");
+                return new List<Student>();
+            }
+            catch (IOException ex)
+            {
+                Console.WriteLine($"Soubor {soubor} nejde přečíst: {ex.Message}");
+                return new List<Student>();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Chyba {ex.Message}");
+                return new List<Student>();
+            }
 
             List<Student> students = new();
 

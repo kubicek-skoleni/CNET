@@ -6,8 +6,15 @@
 // jmeno;prijmeni;trida;rok
 
 //zadej a uloz
-StudentiData.ZadejAUlozStudenty("studenti2.txt");
+//StudentiData.ZadejAUlozStudenty("studenti2.txt");
 
 //nacti do kolekce studentu
-var students = StudentiData.NactiStudenty("studenti2.txt");
-Console.WriteLine($"V kolekci students je {students.Count()} prvků");
+try
+{
+    var students = StudentiData.NactiStudenty("studenti3.txt");
+    Console.WriteLine($"V kolekci students je {students.Count()} prvků");
+}
+catch(Exception ex)
+{
+    Console.WriteLine($"CHYBA: {ex.Message}");
+}
