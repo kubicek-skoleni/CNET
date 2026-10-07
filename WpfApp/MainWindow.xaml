@@ -9,6 +9,5 @@
     <Grid>
         <Button x:Name="btnHello" Content="HELLO" HorizontalAlignment="Left" Margin="36,50,0,0" VerticalAlignment="Top" Height="60" Width="183" FontSize="36" Background="#FF85BED6" Foreground="Red" Click="btnHello_Click"/>
         <TextBlock x:Name="txbInfo" HorizontalAlignment="Stretch" Margin="0,138,0,0" TextWrapping="Wrap" Text="TextBlock" FontSize="36" VerticalAlignment="Stretch"/>
-
     </Grid>
 </Window>

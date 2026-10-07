@@ -21,9 +21,12 @@ namespace WpfApp
             InitializeComponent();
         }
 
+        int counter = 0;
+
         private void btnHello_Click(object sender, RoutedEventArgs e)
         {
-            txbInfo.Text = "Klikl jsi";
+            counter++;
+            txbInfo.Text = $"Klikl jsi {counter}x";
         }
     }
 }
