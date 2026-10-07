@@ -9,12 +9,12 @@ namespace ConsoleApp
         /// <summary>
         /// text pred najitym pismenkem
         /// </summary>
-        public string Pred;
+        public string TextPred;
 
         /// <summary>
         /// text za najitym pismenkem
         /// </summary>
-        public string Za;
+        public string TextZa;
 
         /// <summary>
         /// pocet chyb, 0 pokud zadnou chybu nenasel

@@ -17,11 +17,19 @@ VysledekHledani Hledej2(string input)
 {
     VysledekHledani result = new();
 
-    result.Pred = "text pred";
-    result.Za = "za";
+    result.TextPred = "text pred";
+    result.TextZa = "za";
     result.Errors = 0;
 
     return result;
 }
 
 var vysledek = Hledej2("xxxxx");
+
+Kostka kostka = new(5);
+
+int x = 5;
+
+var pokus = $"{kostka}";
+
+Console.WriteLine(kostka);

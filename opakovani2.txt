@@ -1,0 +1,47 @@
+3 typy cyklů / smyček
+
+while - podmínka
+for - počet
+foreach - pole (kolekce)
+
+co je metoda?
+metoda nebo funkce je to stejné
+může a nemusí něco vracet
+
+Metoda je pojmenovaný kus kódu, který jde zavolat opakovaně.
+
+ternární operátor?
+if(něco)
+ výsledek = 1;
+else
+ výsledek = 2;
+výsledek = něco ? 1 : 2;
+
+hlavička / deklarace metody
+
+navratovy_typ Nazev(typ nazev1, typ nazev2)
+{
+	return xx;
+}
+
+void - metoda bez návratu
+
+
+co je to třida
+- šablona !!
+
+konvence zápisu
+
+co můžeme psát do třídy
+ - metody
+ - vlastnosti (property)
+ - komentáře
+ - konstruktor
+
+metoda ToString()
+lepší textová reprezentace třídy
+
+
+
+
+
