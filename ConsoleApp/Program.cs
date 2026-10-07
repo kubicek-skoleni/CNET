@@ -5,67 +5,9 @@
 // po zadání program soubor uloží
 // jmeno;prijmeni;trida;rok
 
+//zadej a uloz
+StudentiData.ZadejAUlozStudenty("studenti2.txt");
 
-//while zadání - prázdný řádek ukončení zadávání
-
-
-// ******** ZADAVANI A ZAPIS DO SOUBORU ***********
-
-
-List<string> radky = new();
-
-Console.Write("Jméno (prázdné = konec): ");
-string jmeno = Console.ReadLine();
-
-while(!string.IsNullOrEmpty(jmeno)) //signál že končí zadávání je prázdné jméno
-{
-    Console.WriteLine("Zadej příjmení:");
-    var prijmeni = Console.ReadLine();
-    Console.WriteLine("Zadej třídu:");
-    var trida = Console.ReadLine();
-    Console.WriteLine("Zadej rok narození:");
-    var rok = Console.ReadLine();
-
-    var radek = $"{jmeno};{prijmeni};{trida};{rok}";
-    radky.Add(radek);
-
-    Console.Write("Jméno (prázdné = konec): ");
-    jmeno = Console.ReadLine();
-}
-
-if (radky.Count() > 0)
-{
-    File.WriteAllLines("studenti.txt", radky);
-    Console.WriteLine($"Uložil jsem {radky.Count()} do studenti.txt");
-}
-else
-{
-    Console.WriteLine("prázdná kolekce, neukládám");
-}
-
-// ******** CTENI STUDENTU ZE SOUBORU ***********
-
-string[] nacteno = File.ReadAllLines("studenti.txt");
-
-List<Student> students = new();
-
-foreach(var radek in nacteno)
-{
-    Console.WriteLine(radek);
-
-    string[] prvky = radek.Split(";");
-    var stud_jmeno = prvky[0];
-    var stud_prijmeni = prvky[1];
-    var stud_trida = prvky[2];
-    var stud_rok = prvky[3];
-
-    Student stud = new();
-    stud.Jmeno = stud_jmeno;
-    stud.Prijmeni = stud_prijmeni;
-    stud.Trida = stud_trida;
-    stud.RokNarozeni = int.Parse(stud_rok);
-
-    students.Add(stud);
-}
-
+//nacti do kolekce studentu
+var students = StudentiData.NactiStudenty("studenti2.txt");
 Console.WriteLine($"V kolekci students je {students.Count()} prvků");
