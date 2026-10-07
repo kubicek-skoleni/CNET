@@ -5,17 +5,17 @@
     /// </summary>
     internal class Student
     {
-        public string Jmeno;
-        public string Prijmeni;
+        public string Jmeno { get; set; }
+        public string Prijmeni { get; set; }
 
         /// <summary>
         /// Třída z výčtu tříd z číslníku z databáze
         /// </summary>
-        public string Trida;
+        public string Trida { get; set; }
 
-        public int RokNarozeni;
+        public int RokNarozeni { get; set; }
 
-        public Adresa AdresaDoma;
+        public Adresa AdresaDoma { get; set; }
 
         /// <summary>
         /// Aktuální věk studenta, počíta se z roku narození.

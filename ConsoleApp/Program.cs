@@ -6,6 +6,8 @@
 
 //while zadání - prázdný řádek ukončení zadávání
 
+
+// ******** ZADAVANI A ZAPIS DO SOUBORU ***********
 List<string> radky = new();
 
 Console.Write("Jméno (prázdné = konec): ");
@@ -37,7 +39,9 @@ else
     Console.WriteLine("prázdná kolekce, neukládám");
 }
 
-var nacteno = File.ReadAllLines("studenti.txt");
+// ******** CTENI STUDENTU ZE SOUBORU ***********
+
+string[] nacteno = File.ReadAllLines("studenti.txt");
 
 foreach(var radek in nacteno)
 {
