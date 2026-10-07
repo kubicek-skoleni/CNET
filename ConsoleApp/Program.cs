@@ -27,5 +27,19 @@ while(!string.IsNullOrEmpty(jmeno)) //signál že končí zadávání je prázdn
     jmeno = Console.ReadLine();
 }
 
-File.WriteAllLines("studenti.txt", radky);
-Console.WriteLine($"Uložil jsem {radky.Count()} do studenti.txt");
+if (radky.Count() > 0)
+{
+    File.WriteAllLines("studenti.txt", radky);
+    Console.WriteLine($"Uložil jsem {radky.Count()} do studenti.txt");
+}
+else
+{
+    Console.WriteLine("prázdná kolekce, neukládám");
+}
+
+var nacteno = File.ReadAllLines("studenti.txt");
+
+foreach(var radek in nacteno)
+{
+    Console.WriteLine(radek);
+}
