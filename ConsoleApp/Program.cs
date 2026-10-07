@@ -1,12 +1,20 @@
-﻿
-using ConsoleApp;
+﻿using ConsoleApp;
 
-int c = 25;
+Auto auto1 = new();
 
-//volani staticke metody
-var f = Teplota.NaFahrenheit(c);
+auto1.SPZ = "BS112345adfdfdfdfdfddf";
 
-Math.Abs(-50);
+Console.WriteLine(auto1.SPZ);
+
+
+//auto1.Bourane = true;
+
+if(auto1.Bourane)
+{
+
+}
+
+
 
 
 
