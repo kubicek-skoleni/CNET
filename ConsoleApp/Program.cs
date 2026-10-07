@@ -1,30 +1,27 @@
 ﻿
+// tuple - ad hoc združení více hodnot
 using ConsoleApp;
 
-Student pavel = new()
+(string pred, string za, int error) Hledej(string input)
 {
-    Jmeno = "Pavel",
-    Prijmeni = "Novák",
-    AdresaDoma = new()
-    {
-        Ulice = "Česká",
-        CisloPopisne = 12,
-        Mesto = "Brno",
-        PSC = "60200"
-    }
-};
+    string textPred = "pred";
+    string textZa = "za";
+
+    return (textPred, textZa, 0);
+}
+
+var result = Hledej("můj text");
 
 
+VysledekHledani Hledej2(string input)
+{
+    VysledekHledani result = new();
 
-//Adresa pavelDoma = new()
-//{
-//    Ulice = "Česká",
-//    CisloPopisne = 12,
-//    Mesto = "Brno",
-//    PSC = "60200"
-//};
-//pavel.AdresaDoma = pavelDoma;
+    result.Pred = "text pred";
+    result.Za = "za";
+    result.Errors = 0;
 
-pavel.Vek();
+    return result;
+}
 
-Console.WriteLine($"{pavel}");
+var vysledek = Hledej2("xxxxx");
